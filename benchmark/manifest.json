@@ -1,0 +1,173 @@
+{
+  "source": "Nutrition5k (CC BY 4.0)",
+  "dishes": [
+    {
+      "dish_id": "dish_1566417475",
+      "ground_truth_kcal": 150.2,
+      "image_path": "benchmark/images/dish_1566417475/rgb.png",
+      "total_mass_g": 198.0,
+      "n_ingredients": 9
+    },
+    {
+      "dish_id": "dish_1559841091",
+      "ground_truth_kcal": 163.4,
+      "image_path": "benchmark/images/dish_1559841091/rgb.png",
+      "total_mass_g": 166.0,
+      "n_ingredients": 4
+    },
+    {
+      "dish_id": "dish_1558630649",
+      "ground_truth_kcal": 190.0,
+      "image_path": "benchmark/images/dish_1558630649/rgb.png",
+      "total_mass_g": 355.0,
+      "n_ingredients": 3
+    },
+    {
+      "dish_id": "dish_1558031394",
+      "ground_truth_kcal": 237.4,
+      "image_path": "benchmark/images/dish_1558031394/rgb.png",
+      "total_mass_g": 318.0,
+      "n_ingredients": 4
+    },
+    {
+      "dish_id": "dish_1558637932",
+      "ground_truth_kcal": 248.3,
+      "image_path": "benchmark/images/dish_1558637932/rgb.png",
+      "total_mass_g": 393.0,
+      "n_ingredients": 4
+    },
+    {
+      "dish_id": "dish_1558122740",
+      "ground_truth_kcal": 260.1,
+      "image_path": "benchmark/images/dish_1558122740/rgb.png",
+      "total_mass_g": 304.0,
+      "n_ingredients": 5
+    },
+    {
+      "dish_id": "dish_1562099134",
+      "ground_truth_kcal": 271.6,
+      "image_path": "benchmark/images/dish_1562099134/rgb.png",
+      "total_mass_g": 188.0,
+      "n_ingredients": 22
+    },
+    {
+      "dish_id": "dish_1561480460",
+      "ground_truth_kcal": 285.4,
+      "image_path": "benchmark/images/dish_1561480460/rgb.png",
+      "total_mass_g": 277.0,
+      "n_ingredients": 4
+    },
+    {
+      "dish_id": "dish_1568047973",
+      "ground_truth_kcal": 295.6,
+      "image_path": "benchmark/images/dish_1568047973/rgb.png",
+      "total_mass_g": 234.0,
+      "n_ingredients": 3
+    },
+    {
+      "dish_id": "dish_1562086595",
+      "ground_truth_kcal": 308.6,
+      "image_path": "benchmark/images/dish_1562086595/rgb.png",
+      "total_mass_g": 324.0,
+      "n_ingredients": 3
+    },
+    {
+      "dish_id": "dish_1561752509",
+      "ground_truth_kcal": 321.5,
+      "image_path": "benchmark/images/dish_1561752509/rgb.png",
+      "total_mass_g": 224.0,
+      "n_ingredients": 12
+    },
+    {
+      "dish_id": "dish_1559667973",
+      "ground_truth_kcal": 334.5,
+      "image_path": "benchmark/images/dish_1559667973/rgb.png",
+      "total_mass_g": 179.0,
+      "n_ingredients": 3
+    },
+    {
+      "dish_id": "dish_1565020895",
+      "ground_truth_kcal": 348.1,
+      "image_path": "benchmark/images/dish_1565020895/rgb.png",
+      "total_mass_g": 416.0,
+      "n_ingredients": 8
+    },
+    {
+      "dish_id": "dish_1561579867",
+      "ground_truth_kcal": 369.4,
+      "image_path": "benchmark/images/dish_1561579867/rgb.png",
+      "total_mass_g": 217.0,
+      "n_ingredients": 24
+    },
+    {
+      "dish_id": "dish_1563476646",
+      "ground_truth_kcal": 380.2,
+      "image_path": "benchmark/images/dish_1563476646/rgb.png",
+      "total_mass_g": 218.0,
+      "n_ingredients": 12
+    },
+    {
+      "dish_id": "dish_1562874250",
+      "ground_truth_kcal": 394.4,
+      "image_path": "benchmark/images/dish_1562874250/rgb.png",
+      "total_mass_g": 393.0,
+      "n_ingredients": 15
+    },
+    {
+      "dish_id": "dish_1565123881",
+      "ground_truth_kcal": 406.8,
+      "image_path": "benchmark/images/dish_1565123881/rgb.png",
+      "total_mass_g": 515.0,
+      "n_ingredients": 13
+    },
+    {
+      "dish_id": "dish_1559581356",
+      "ground_truth_kcal": 436.9,
+      "image_path": "benchmark/images/dish_1559581356/rgb.png",
+      "total_mass_g": 294.0,
+      "n_ingredients": 13
+    },
+    {
+      "dish_id": "dish_1566502505",
+      "ground_truth_kcal": 454.5,
+      "image_path": "benchmark/images/dish_1566502505/rgb.png",
+      "total_mass_g": 275.0,
+      "n_ingredients": 16
+    },
+    {
+      "dish_id": "dish_1566588016",
+      "ground_truth_kcal": 472.2,
+      "image_path": "benchmark/images/dish_1566588016/rgb.png",
+      "total_mass_g": 374.0,
+      "n_ingredients": 8
+    },
+    {
+      "dish_id": "dish_1566931620",
+      "ground_truth_kcal": 494.6,
+      "image_path": "benchmark/images/dish_1566931620/rgb.png",
+      "total_mass_g": 461.0,
+      "n_ingredients": 5
+    },
+    {
+      "dish_id": "dish_1567024252",
+      "ground_truth_kcal": 512.0,
+      "image_path": "benchmark/images/dish_1567024252/rgb.png",
+      "total_mass_g": 454.0,
+      "n_ingredients": 18
+    },
+    {
+      "dish_id": "dish_1558114609",
+      "ground_truth_kcal": 540.9,
+      "image_path": "benchmark/images/dish_1558114609/rgb.png",
+      "total_mass_g": 160.0,
+      "n_ingredients": 4
+    },
+    {
+      "dish_id": "dish_1563302447",
+      "ground_truth_kcal": 561.4,
+      "image_path": "benchmark/images/dish_1563302447/rgb.png",
+      "total_mass_g": 440.0,
+      "n_ingredients": 20
+    }
+  ]
+}

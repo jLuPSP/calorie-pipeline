@@ -1,0 +1,203 @@
+[
+  {
+    "image": "evals/sample_images/pizza.jpg",
+    "comparison": {
+      "image_path": "evals/sample_images/pizza.jpg",
+      "oneshot": {
+        "kcal": 250.0,
+        "raw": "{\"kcal\": 250}"
+      },
+      "oneshot_seconds": 3.8541993999970146,
+      "estimate": {
+        "grounded": [
+          {
+            "ingredient": {
+              "name": "pizza crust",
+              "grams": 50.0,
+              "prep": null
+            },
+            "kcal": 140.0,
+            "kcal_per_100g": 280.0,
+            "fdc_description": "PIZZA HUT 12\" Cheese Pizza, Pan Crust",
+            "fdc_id": 172041
+          },
+          {
+            "ingredient": {
+              "name": "mozzarella cheese",
+              "grams": 20.0,
+              "prep": null
+            },
+            "kcal": 59.6,
+            "kcal_per_100g": 298.0,
+            "fdc_description": "Cheese, mozzarella, low moisture, part-skim",
+            "fdc_id": 329370
+          },
+          {
+            "ingredient": {
+              "name": "tomato sauce",
+              "grams": 10.0,
+              "prep": null
+            },
+            "kcal": 9.5,
+            "kcal_per_100g": 95.0,
+            "fdc_description": "Sauce, steak, tomato based",
+            "fdc_id": 171825
+          },
+          {
+            "ingredient": {
+              "name": "pepperoni",
+              "grams": 15.0,
+              "prep": null
+            },
+            "kcal": 75.6,
+            "kcal_per_100g": 504.0,
+            "fdc_description": "Pepperoni, beef and pork, sliced",
+            "fdc_id": 174575
+          }
+        ],
+        "adjustments": [
+          {
+            "reason": "breading on the pepperoni",
+            "low": 20.0,
+            "high": 30.0
+          }
+        ],
+        "base_kcal": 284.7,
+        "low": 304.7,
+        "high": 314.7,
+        "point": 309.7
+      },
+      "pipeline_seconds": 21.051384399994276
+    }
+  },
+  {
+    "image": "evals/sample_images/turkey_sandwich.jpg",
+    "comparison": {
+      "image_path": "evals/sample_images/turkey_sandwich.jpg",
+      "oneshot": {
+        "kcal": 450.0,
+        "raw": "{\"kcal\": 450}"
+      },
+      "oneshot_seconds": 3.3331174999912037,
+      "estimate": {
+        "grounded": [
+          {
+            "ingredient": {
+              "name": "whole wheat bread",
+              "grams": 150.0,
+              "prep": "toasted"
+            },
+            "kcal": 411.0,
+            "kcal_per_100g": 274.0,
+            "fdc_description": "Bread, wheat",
+            "fdc_id": 172686
+          },
+          {
+            "ingredient": {
+              "name": "sliced deli turkey breast",
+              "grams": 75.0,
+              "prep": null
+            },
+            "kcal": 81.75,
+            "kcal_per_100g": 109.0,
+            "fdc_description": "Turkey breast, low salt, prepackaged or deli, luncheon meat",
+            "fdc_id": 174572
+          },
+          {
+            "ingredient": {
+              "name": "cheddar cheese slice",
+              "grams": 20.0,
+              "prep": null
+            },
+            "kcal": 81.6,
+            "kcal_per_100g": 408.0,
+            "fdc_description": "Cheese, cheddar",
+            "fdc_id": 328637
+          },
+          {
+            "ingredient": {
+              "name": "lettuce leaf",
+              "grams": 10.0,
+              "prep": null
+            },
+            "kcal": 1.3,
+            "kcal_per_100g": 13.0,
+            "fdc_description": "Lettuce, red leaf, raw",
+            "fdc_id": 168431
+          },
+          {
+            "ingredient": {
+              "name": "tomato slice",
+              "grams": 10.0,
+              "prep": null
+            },
+            "kcal": 2.7,
+            "kcal_per_100g": 27.0,
+            "fdc_description": "Tomatoes, grape, raw",
+            "fdc_id": 321360
+          },
+          {
+            "ingredient": {
+              "name": "red onion slice",
+              "grams": 5.0,
+              "prep": null
+            },
+            "kcal": 2.2,
+            "kcal_per_100g": 44.0,
+            "fdc_description": "Onions, red, raw",
+            "fdc_id": 790577
+          }
+        ],
+        "adjustments": [],
+        "base_kcal": 580.55,
+        "low": 580.55,
+        "high": 580.55,
+        "point": 580.55
+      },
+      "pipeline_seconds": 26.154755000010482
+    }
+  },
+  {
+    "image": "evals/sample_images/bagels.jpg",
+    "comparison": {
+      "image_path": "evals/sample_images/bagels.jpg",
+      "oneshot": {
+        "kcal": 0.0,
+        "raw": "{\"kcal\": 0}"
+      },
+      "oneshot_seconds": 3.3501011000043945,
+      "estimate": {
+        "grounded": [
+          {
+            "ingredient": {
+              "name": "bagel",
+              "grams": 150.0,
+              "prep": "toasted"
+            },
+            "kcal": 417.0,
+            "kcal_per_100g": 278.0,
+            "fdc_description": "Bagels, egg",
+            "fdc_id": 174901
+          },
+          {
+            "ingredient": {
+              "name": "sesame seeds",
+              "grams": 20.0,
+              "prep": null
+            },
+            "kcal": 113.4,
+            "kcal_per_100g": 567.0,
+            "fdc_description": "Seeds, sesame meal, partially defatted",
+            "fdc_id": 170561
+          }
+        ],
+        "adjustments": [],
+        "base_kcal": 530.4,
+        "low": 530.4,
+        "high": 530.4,
+        "point": 530.4
+      },
+      "pipeline_seconds": 12.784679999997024
+    }
+  }
+]

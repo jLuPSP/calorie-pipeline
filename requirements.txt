@@ -1,0 +1,5 @@
+# Runtime dependencies. The pipeline is deliberately small.
+ollama>=0.3.0      # local model client (vision + text stages)
+requests>=2.31.0   # USDA FoodData Central REST lookup
+
+# Tests and the offline eval need neither of the above; they run on the stdlib.

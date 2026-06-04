@@ -1,0 +1,31 @@
+{
+  "n": 24,
+  "oneshot_failures": 0,
+  "oneshot": {
+    "point": {
+      "n": 24,
+      "mae": 89.89999999999999,
+      "mape": 32.60512807997322,
+      "rmse": 116.60957650782089,
+      "bias": 35.916666666666664,
+      "median_abs_error": 65.9
+    },
+    "coverage": 0.0
+  },
+  "pipeline": {
+    "point": {
+      "n": 24,
+      "mae": 140.6604166666667,
+      "mape": 48.203420055699695,
+      "rmse": 200.55880969389835,
+      "bias": 71.49791666666667,
+      "median_abs_error": 91.35
+    },
+    "interval": {
+      "n": 24,
+      "coverage": 0.0,
+      "mean_width": 6.041666666666667,
+      "median_width": 0.0
+    }
+  }
+}

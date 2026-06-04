@@ -1,0 +1,1988 @@
+[
+  {
+    "dish_id": "dish_1566417475",
+    "truth": 150.2,
+    "oneshot": 350.0,
+    "pl_low": 180.2,
+    "pl_high": 180.2,
+    "pl_point": 180.2,
+    "oneshot_s": 4.1,
+    "pipeline_s": 37.3,
+    "comparison": {
+      "image_path": "benchmark/images/dish_1566417475/rgb.png",
+      "oneshot": {
+        "kcal": 350.0,
+        "raw": "{\"kcal\": 350}"
+      },
+      "oneshot_seconds": 4.070498899993254,
+      "estimate": {
+        "grounded": [
+          {
+            "ingredient": {
+              "name": "potato chunks",
+              "grams": 50.0,
+              "prep": "roasted"
+            },
+            "kcal": 133.0,
+            "kcal_per_100g": 266.0,
+            "fdc_description": "Bread, potato",
+            "fdc_id": 167943
+          },
+          {
+            "ingredient": {
+              "name": "eggplant chunks",
+              "grams": 100.0,
+              "prep": "roasted"
+            },
+            "kcal": 25.0,
+            "kcal_per_100g": 25.0,
+            "fdc_description": "Eggplant, raw",
+            "fdc_id": 169228
+          },
+          {
+            "ingredient": {
+              "name": "lettuce leaves",
+              "grams": 75.0,
+              "prep": null
+            },
+            "kcal": 11.25,
+            "kcal_per_100g": 15.0,
+            "fdc_description": "Lettuce, green leaf, raw",
+            "fdc_id": 169249
+          },
+          {
+            "ingredient": {
+              "name": "green onion tops",
+              "grams": 25.0,
+              "prep": null
+            },
+            "kcal": 6.75,
+            "kcal_per_100g": 27.0,
+            "fdc_description": "Onions, young green, tops only",
+            "fdc_id": 170006
+          },
+          {
+            "ingredient": {
+              "name": "white radish slice",
+              "grams": 30.0,
+              "prep": null
+            },
+            "kcal": 4.2,
+            "kcal_per_100g": 14.0,
+            "fdc_description": "Radishes, white icicle, raw",
+            "fdc_id": 170081
+          }
+        ],
+        "adjustments": [],
+        "base_kcal": 180.2,
+        "low": 180.2,
+        "high": 180.2,
+        "point": 180.2
+      },
+      "pipeline_seconds": 37.27306619999581
+    }
+  },
+  {
+    "dish_id": "dish_1559841091",
+    "truth": 163.4,
+    "oneshot": 250.0,
+    "pl_low": 89.0,
+    "pl_high": 99.0,
+    "pl_point": 94.0,
+    "oneshot_s": 3.4,
+    "pipeline_s": 20.6,
+    "comparison": {
+      "image_path": "benchmark/images/dish_1559841091/rgb.png",
+      "oneshot": {
+        "kcal": 250.0,
+        "raw": "{\"kcal\": 250}"
+      },
+      "oneshot_seconds": 3.3967212999996264,
+      "estimate": {
+        "grounded": [
+          {
+            "ingredient": {
+              "name": "blackberry",
+              "grams": 50.0,
+              "prep": null
+            },
+            "kcal": 47.5,
+            "kcal_per_100g": 95.0,
+            "fdc_description": "Yogurt, Greek, nonfat, Fruit on Bottom, Blackberry, CHOBANI",
+            "fdc_id": 170916
+          },
+          {
+            "ingredient": {
+              "name": "potato chunk",
+              "grams": 25.0,
+              "prep": "fried"
+            },
+            "kcal": 31.5,
+            "kcal_per_100g": 126.0,
+            "fdc_description": "Potato, NFS",
+            "fdc_id": 2709382
+          }
+        ],
+        "adjustments": [
+          {
+            "reason": "frying oil",
+            "low": 10.0,
+            "high": 20.0
+          }
+        ],
+        "base_kcal": 79.0,
+        "low": 89.0,
+        "high": 99.0,
+        "point": 94.0
+      },
+      "pipeline_seconds": 20.644095900002867
+    }
+  },
+  {
+    "dish_id": "dish_1558630649",
+    "truth": 190.0,
+    "oneshot": 250.0,
+    "pl_low": 620.5,
+    "pl_high": 620.5,
+    "pl_point": 620.5,
+    "oneshot_s": 3.4,
+    "pipeline_s": 25.0,
+    "comparison": {
+      "image_path": "benchmark/images/dish_1558630649/rgb.png",
+      "oneshot": {
+        "kcal": 250.0,
+        "raw": "{\"kcal\": 250}"
+      },
+      "oneshot_seconds": 3.4209457999968436,
+      "estimate": {
+        "grounded": [
+          {
+            "ingredient": {
+              "name": "grape",
+              "grams": 150.0,
+              "prep": null
+            },
+            "kcal": 91.5,
+            "kcal_per_100g": 61.0,
+            "fdc_description": "Beverages, grape drink, canned",
+            "fdc_id": 171916
+          },
+          {
+            "ingredient": {
+              "name": "apple",
+              "grams": 200.0,
+              "prep": null
+            },
+            "kcal": 508.0,
+            "kcal_per_100g": 254.0,
+            "fdc_description": "Croissants, apple",
+            "fdc_id": 174988
+          },
+          {
+            "ingredient": {
+              "name": "melon",
+              "grams": 100.0,
+              "prep": null
+            },
+            "kcal": 21.0,
+            "kcal_per_100g": 21.0,
+            "fdc_description": "Melon, banana (Navajo)",
+            "fdc_id": 167629
+          }
+        ],
+        "adjustments": [],
+        "base_kcal": 620.5,
+        "low": 620.5,
+        "high": 620.5,
+        "point": 620.5
+      },
+      "pipeline_seconds": 24.981142900011037
+    }
+  },
+  {
+    "dish_id": "dish_1558031394",
+    "truth": 237.4,
+    "oneshot": 250.0,
+    "pl_low": 206.0,
+    "pl_high": 206.0,
+    "pl_point": 206.0,
+    "oneshot_s": 3.4,
+    "pipeline_s": 28.6,
+    "comparison": {
+      "image_path": "benchmark/images/dish_1558031394/rgb.png",
+      "oneshot": {
+        "kcal": 250.0,
+        "raw": "{\"kcal\": 250}"
+      },
+      "oneshot_seconds": 3.4229918000055477,
+      "estimate": {
+        "grounded": [
+          {
+            "ingredient": {
+              "name": "watermelon cubes",
+              "grams": 50.0,
+              "prep": null
+            },
+            "kcal": 15.0,
+            "kcal_per_100g": 30.0,
+            "fdc_description": "Watermelon, raw",
+            "fdc_id": 167765
+          },
+          {
+            "ingredient": {
+              "name": "honeydew melon cubes",
+              "grams": 75.0,
+              "prep": null
+            },
+            "kcal": 27.0,
+            "kcal_per_100g": 36.0,
+            "fdc_description": "Melons, honeydew, raw",
+            "fdc_id": 169911
+          },
+          {
+            "ingredient": {
+              "name": "sweet potato cubes",
+              "grams": 100.0,
+              "prep": "roasted"
+            },
+            "kcal": 101.0,
+            "kcal_per_100g": 101.0,
+            "fdc_description": "Sweet potato, canned, mashed",
+            "fdc_id": 169305
+          },
+          {
+            "ingredient": {
+              "name": "potato cubes",
+              "grams": 50.0,
+              "prep": "roasted"
+            },
+            "kcal": 63.0,
+            "kcal_per_100g": 126.0,
+            "fdc_description": "Potato, NFS",
+            "fdc_id": 2709382
+          }
+        ],
+        "adjustments": [],
+        "base_kcal": 206.0,
+        "low": 206.0,
+        "high": 206.0,
+        "point": 206.0
+      },
+      "pipeline_seconds": 28.630627299993648
+    }
+  },
+  {
+    "dish_id": "dish_1558637932",
+    "truth": 248.3,
+    "oneshot": 150.0,
+    "pl_low": 526.25,
+    "pl_high": 526.25,
+    "pl_point": 526.25,
+    "oneshot_s": 3.4,
+    "pipeline_s": 18.9,
+    "comparison": {
+      "image_path": "benchmark/images/dish_1558637932/rgb.png",
+      "oneshot": {
+        "kcal": 150.0,
+        "raw": "{\"kcal\": 150}"
+      },
+      "oneshot_seconds": 3.419448899992858,
+      "estimate": {
+        "grounded": [
+          {
+            "ingredient": {
+              "name": "apple",
+              "grams": 150.0,
+              "prep": "raw"
+            },
+            "kcal": 381.0,
+            "kcal_per_100g": 254.0,
+            "fdc_description": "Croissants, apple",
+            "fdc_id": 174988
+          },
+          {
+            "ingredient": {
+              "name": "cauliflower florets",
+              "grams": 75.0,
+              "prep": "raw"
+            },
+            "kcal": 23.25,
+            "kcal_per_100g": 31.0,
+            "fdc_description": "Cauliflower, green, raw",
+            "fdc_id": 169389
+          },
+          {
+            "ingredient": {
+              "name": "grape",
+              "grams": 200.0,
+              "prep": "raw"
+            },
+            "kcal": 122.0,
+            "kcal_per_100g": 61.0,
+            "fdc_description": "Beverages, grape drink, canned",
+            "fdc_id": 171916
+          }
+        ],
+        "adjustments": [],
+        "base_kcal": 526.25,
+        "low": 526.25,
+        "high": 526.25,
+        "point": 526.25
+      },
+      "pipeline_seconds": 18.946079899993492
+    }
+  },
+  {
+    "dish_id": "dish_1558122740",
+    "truth": 260.1,
+    "oneshot": 450.0,
+    "pl_low": 333.6,
+    "pl_high": 358.6,
+    "pl_point": 346.1,
+    "oneshot_s": 3.4,
+    "pipeline_s": 44.6,
+    "comparison": {
+      "image_path": "benchmark/images/dish_1558122740/rgb.png",
+      "oneshot": {
+        "kcal": 450.0,
+        "raw": "{\"kcal\": 450}"
+      },
+      "oneshot_seconds": 3.422641899989685,
+      "estimate": {
+        "grounded": [
+          {
+            "ingredient": {
+              "name": "grapes",
+              "grams": 50.0,
+              "prep": null
+            },
+            "kcal": 33.5,
+            "kcal_per_100g": 67.0,
+            "fdc_description": "Grapes, american type (slip skin), raw",
+            "fdc_id": 174682
+          },
+          {
+            "ingredient": {
+              "name": "apple",
+              "grams": 100.0,
+              "prep": null
+            },
+            "kcal": 61.0,
+            "kcal_per_100g": 61.0,
+            "fdc_description": "Apple, raw",
+            "fdc_id": 2709215
+          },
+          {
+            "ingredient": {
+              "name": "potatoes",
+              "grams": 50.0,
+              "prep": "boiled"
+            },
+            "kcal": 29.0,
+            "kcal_per_100g": 58.0,
+            "fdc_description": "Potatoes, raw, skin",
+            "fdc_id": 170032
+          },
+          {
+            "ingredient": {
+              "name": "spinach",
+              "grams": 50.0,
+              "prep": null
+            },
+            "kcal": 11.5,
+            "kcal_per_100g": 23.0,
+            "fdc_description": "Spinach, raw",
+            "fdc_id": 168462
+          },
+          {
+            "ingredient": {
+              "name": "carrots",
+              "grams": 20.0,
+              "prep": null
+            },
+            "kcal": 8.2,
+            "kcal_per_100g": 41.0,
+            "fdc_description": "Carrots, raw",
+            "fdc_id": 170393
+          },
+          {
+            "ingredient": {
+              "name": "bacon",
+              "grams": 30.0,
+              "prep": "fried"
+            },
+            "kcal": 140.4,
+            "kcal_per_100g": 468.0,
+            "fdc_description": "Bacon, for use with vegetables",
+            "fdc_id": 2710239
+          }
+        ],
+        "adjustments": [
+          {
+            "reason": "breading or batter on bacon",
+            "low": 50.0,
+            "high": 75.0
+          }
+        ],
+        "base_kcal": 283.6,
+        "low": 333.6,
+        "high": 358.6,
+        "point": 346.1
+      },
+      "pipeline_seconds": 44.59494170000835
+    }
+  },
+  {
+    "dish_id": "dish_1562099134",
+    "truth": 271.6,
+    "oneshot": 350.0,
+    "pl_low": 200.9,
+    "pl_high": 200.9,
+    "pl_point": 200.9,
+    "oneshot_s": 3.4,
+    "pipeline_s": 31.6,
+    "comparison": {
+      "image_path": "benchmark/images/dish_1562099134/rgb.png",
+      "oneshot": {
+        "kcal": 350.0,
+        "raw": "{\"kcal\": 350}"
+      },
+      "oneshot_seconds": 3.3729335999960313,
+      "estimate": {
+        "grounded": [
+          {
+            "ingredient": {
+              "name": "lettuce",
+              "grams": 50.0,
+              "prep": null
+            },
+            "kcal": 10.0,
+            "kcal_per_100g": 20.0,
+            "fdc_description": "Lettuce, raw",
+            "fdc_id": 2709789
+          },
+          {
+            "ingredient": {
+              "name": "carrot slice",
+              "grams": 20.0,
+              "prep": null
+            },
+            "kcal": 8.2,
+            "kcal_per_100g": 41.0,
+            "fdc_description": "Carrots, raw",
+            "fdc_id": 170393
+          },
+          {
+            "ingredient": {
+              "name": "chicken thigh",
+              "grams": 30.0,
+              "prep": "fried"
+            },
+            "kcal": 66.3,
+            "kcal_per_100g": 221.0,
+            "fdc_description": "Chicken, broilers or fryers, thigh, meat and skin, raw",
+            "fdc_id": 172385
+          },
+          {
+            "ingredient": {
+              "name": "naan bread",
+              "grams": 40.0,
+              "prep": null
+            },
+            "kcal": 116.4,
+            "kcal_per_100g": 291.0,
+            "fdc_description": "Bread, naan, plain, commercially prepared, refrigerated",
+            "fdc_id": 171845
+          }
+        ],
+        "adjustments": [],
+        "base_kcal": 200.9,
+        "low": 200.9,
+        "high": 200.9,
+        "point": 200.9
+      },
+      "pipeline_seconds": 31.627811800004565
+    }
+  },
+  {
+    "dish_id": "dish_1561480460",
+    "truth": 285.4,
+    "oneshot": 450.0,
+    "pl_low": 479.25,
+    "pl_high": 489.25,
+    "pl_point": 484.25,
+    "oneshot_s": 3.4,
+    "pipeline_s": 35.7,
+    "comparison": {
+      "image_path": "benchmark/images/dish_1561480460/rgb.png",
+      "oneshot": {
+        "kcal": 450.0,
+        "raw": "{\"kcal\": 450}"
+      },
+      "oneshot_seconds": 3.4044289000012213,
+      "estimate": {
+        "grounded": [
+          {
+            "ingredient": {
+              "name": "scrambled eggs",
+              "grams": 150.0,
+              "prep": "scrambled"
+            },
+            "kcal": 313.5,
+            "kcal_per_100g": 209.0,
+            "fdc_description": "Egg omelet or scrambled egg, with cheese and meat, NS as to fat",
+            "fdc_id": 2707221
+          },
+          {
+            "ingredient": {
+              "name": "pineapple chunks",
+              "grams": 75.0,
+              "prep": null
+            },
+            "kcal": 45.0,
+            "kcal_per_100g": 60.0,
+            "fdc_description": "Pineapple, raw",
+            "fdc_id": 2709260
+          },
+          {
+            "ingredient": {
+              "name": "blackberries",
+              "grams": 50.0,
+              "prep": null
+            },
+            "kcal": 21.5,
+            "kcal_per_100g": 43.0,
+            "fdc_description": "Blackberries, raw",
+            "fdc_id": 173946
+          },
+          {
+            "ingredient": {
+              "name": "raspberries",
+              "grams": 50.0,
+              "prep": null
+            },
+            "kcal": 26.0,
+            "kcal_per_100g": 52.0,
+            "fdc_description": "Raspberries, raw",
+            "fdc_id": 167755
+          },
+          {
+            "ingredient": {
+              "name": "bacon strips",
+              "grams": 25.0,
+              "prep": "cooked"
+            },
+            "kcal": 63.25,
+            "kcal_per_100g": 253.0,
+            "fdc_description": "Bacon, turkey, low sodium",
+            "fdc_id": 171640
+          }
+        ],
+        "adjustments": [
+          {
+            "reason": "butter for cooking scrambled eggs",
+            "low": 10.0,
+            "high": 20.0
+          }
+        ],
+        "base_kcal": 469.25,
+        "low": 479.25,
+        "high": 489.25,
+        "point": 484.25
+      },
+      "pipeline_seconds": 35.711589400001685
+    }
+  },
+  {
+    "dish_id": "dish_1568047973",
+    "truth": 295.6,
+    "oneshot": 250.0,
+    "pl_low": 450.5,
+    "pl_high": 500.5,
+    "pl_point": 475.5,
+    "oneshot_s": 3.4,
+    "pipeline_s": 18.6,
+    "comparison": {
+      "image_path": "benchmark/images/dish_1568047973/rgb.png",
+      "oneshot": {
+        "kcal": 250.0,
+        "raw": "{\"kcal\": 250}"
+      },
+      "oneshot_seconds": 3.3794844999938505,
+      "estimate": {
+        "grounded": [
+          {
+            "ingredient": {
+              "name": "scrambled eggs",
+              "grams": 250.0,
+              "prep": "scrambled"
+            },
+            "kcal": 372.5,
+            "kcal_per_100g": 149.0,
+            "fdc_description": "Egg, whole, cooked, scrambled",
+            "fdc_id": 172187
+          },
+          {
+            "ingredient": {
+              "name": "broccoli florets",
+              "grams": 100.0,
+              "prep": "steamed"
+            },
+            "kcal": 28.0,
+            "kcal_per_100g": 28.0,
+            "fdc_description": "Broccoli, flower clusters, raw",
+            "fdc_id": 169330
+          }
+        ],
+        "adjustments": [
+          {
+            "reason": "butter for scrambling",
+            "low": 50.0,
+            "high": 100.0
+          }
+        ],
+        "base_kcal": 400.5,
+        "low": 450.5,
+        "high": 500.5,
+        "point": 475.5
+      },
+      "pipeline_seconds": 18.599018900000374
+    }
+  },
+  {
+    "dish_id": "dish_1562086595",
+    "truth": 308.6,
+    "oneshot": 450.0,
+    "pl_low": 598.55,
+    "pl_high": 598.55,
+    "pl_point": 598.55,
+    "oneshot_s": 8.6,
+    "pipeline_s": 70.8,
+    "comparison": {
+      "image_path": "benchmark/images/dish_1562086595/rgb.png",
+      "oneshot": {
+        "kcal": 450.0,
+        "raw": "{\"kcal\": 450}"
+      },
+      "oneshot_seconds": 8.57521560000896,
+      "estimate": {
+        "grounded": [
+          {
+            "ingredient": {
+              "name": "scrambled eggs",
+              "grams": 250.0,
+              "prep": null
+            },
+            "kcal": 372.5,
+            "kcal_per_100g": 149.0,
+            "fdc_description": "Egg, whole, cooked, scrambled",
+            "fdc_id": 172187
+          },
+          {
+            "ingredient": {
+              "name": "watermelon chunks",
+              "grams": 100.0,
+              "prep": null
+            },
+            "kcal": 30.0,
+            "kcal_per_100g": 30.0,
+            "fdc_description": "Watermelon, raw",
+            "fdc_id": 167765
+          },
+          {
+            "ingredient": {
+              "name": "strawberry slices",
+              "grams": 50.0,
+              "prep": null
+            },
+            "kcal": 17.5,
+            "kcal_per_100g": 35.0,
+            "fdc_description": "Strawberries, frozen",
+            "fdc_id": 2709285
+          },
+          {
+            "ingredient": {
+              "name": "blueberries",
+              "grams": 25.0,
+              "prep": null
+            },
+            "kcal": 12.75,
+            "kcal_per_100g": 51.0,
+            "fdc_description": "Blueberries, frozen",
+            "fdc_id": 2709277
+          },
+          {
+            "ingredient": {
+              "name": "blackberry",
+              "grams": 10.0,
+              "prep": null
+            },
+            "kcal": 9.5,
+            "kcal_per_100g": 95.0,
+            "fdc_description": "Yogurt, Greek, nonfat, Fruit on Bottom, Blackberry, CHOBANI",
+            "fdc_id": 170916
+          },
+          {
+            "ingredient": {
+              "name": "pineapple chunks",
+              "grams": 50.0,
+              "prep": null
+            },
+            "kcal": 30.0,
+            "kcal_per_100g": 60.0,
+            "fdc_description": "Pineapple, raw",
+            "fdc_id": 2709260
+          },
+          {
+            "ingredient": {
+              "name": "cantaloupe chunks",
+              "grams": 50.0,
+              "prep": null
+            },
+            "kcal": 19.0,
+            "kcal_per_100g": 38.0,
+            "fdc_description": "Cantaloupe, raw",
+            "fdc_id": 2709226
+          },
+          {
+            "ingredient": {
+              "name": "mango chunks",
+              "grams": 25.0,
+              "prep": null
+            },
+            "kcal": 15.0,
+            "kcal_per_100g": 60.0,
+            "fdc_description": "Mango, frozen",
+            "fdc_id": 2709244
+          },
+          {
+            "ingredient": {
+              "name": "lettuce leaves",
+              "grams": 10.0,
+              "prep": null
+            },
+            "kcal": 1.5,
+            "kcal_per_100g": 15.0,
+            "fdc_description": "Lettuce, green leaf, raw",
+            "fdc_id": 169249
+          },
+          {
+            "ingredient": {
+              "name": "avocado slices",
+              "grams": 20.0,
+              "prep": null
+            },
+            "kcal": 32.0,
+            "kcal_per_100g": 160.0,
+            "fdc_description": "Avocado, raw",
+            "fdc_id": 2709223
+          },
+          {
+            "ingredient": {
+              "name": "sour cream",
+              "grams": 30.0,
+              "prep": null
+            },
+            "kcal": 58.8,
+            "kcal_per_100g": 196.0,
+            "fdc_description": "Sour cream, regular",
+            "fdc_id": 2705614
+          }
+        ],
+        "adjustments": [],
+        "base_kcal": 598.55,
+        "low": 598.55,
+        "high": 598.55,
+        "point": 598.55
+      },
+      "pipeline_seconds": 70.77989010000601
+    }
+  },
+  {
+    "dish_id": "dish_1561752509",
+    "truth": 321.5,
+    "oneshot": 0.0,
+    "pl_low": 375.5,
+    "pl_high": 375.5,
+    "pl_point": 375.5,
+    "oneshot_s": 3.8,
+    "pipeline_s": 42.6,
+    "comparison": {
+      "image_path": "benchmark/images/dish_1561752509/rgb.png",
+      "oneshot": {
+        "kcal": 0.0,
+        "raw": "{\"kcal\": 0}"
+      },
+      "oneshot_seconds": 3.8199649000016507,
+      "estimate": {
+        "grounded": [
+          {
+            "ingredient": {
+              "name": "potato slice",
+              "grams": 50.0,
+              "prep": "raw"
+            },
+            "kcal": 133.0,
+            "kcal_per_100g": 266.0,
+            "fdc_description": "Bread, potato",
+            "fdc_id": 167943
+          },
+          {
+            "ingredient": {
+              "name": "mushroom slice",
+              "grams": 20.0,
+              "prep": "raw"
+            },
+            "kcal": 4.4,
+            "kcal_per_100g": 22.0,
+            "fdc_description": "Mushrooms, portabella, raw",
+            "fdc_id": 169255
+          },
+          {
+            "ingredient": {
+              "name": "mushroom slice",
+              "grams": 10.0,
+              "prep": "raw"
+            },
+            "kcal": 2.2,
+            "kcal_per_100g": 22.0,
+            "fdc_description": "Mushrooms, portabella, raw",
+            "fdc_id": 169255
+          },
+          {
+            "ingredient": {
+              "name": "mushroom slice",
+              "grams": 15.0,
+              "prep": "raw"
+            },
+            "kcal": 43.2,
+            "kcal_per_100g": 288.0,
+            "fdc_description": "Mushrooms, stuffed",
+            "fdc_id": 2710052
+          },
+          {
+            "ingredient": {
+              "name": "mushroom slice",
+              "grams": 25.0,
+              "prep": "raw"
+            },
+            "kcal": 5.5,
+            "kcal_per_100g": 22.0,
+            "fdc_description": "Mushrooms, portabella, raw",
+            "fdc_id": 169255
+          },
+          {
+            "ingredient": {
+              "name": "mushroom slice",
+              "grams": 30.0,
+              "prep": "raw"
+            },
+            "kcal": 86.4,
+            "kcal_per_100g": 288.0,
+            "fdc_description": "Mushrooms, stuffed",
+            "fdc_id": 2710052
+          },
+          {
+            "ingredient": {
+              "name": "mushroom slice",
+              "grams": 35.0,
+              "prep": "raw"
+            },
+            "kcal": 100.8,
+            "kcal_per_100g": 288.0,
+            "fdc_description": "Mushrooms, stuffed",
+            "fdc_id": 2710052
+          }
+        ],
+        "adjustments": [],
+        "base_kcal": 375.5,
+        "low": 375.5,
+        "high": 375.5,
+        "point": 375.5
+      },
+      "pipeline_seconds": 42.649643999990076
+    }
+  },
+  {
+    "dish_id": "dish_1559667973",
+    "truth": 334.5,
+    "oneshot": 350.0,
+    "pl_low": 562.75,
+    "pl_high": 562.75,
+    "pl_point": 562.75,
+    "oneshot_s": 3.5,
+    "pipeline_s": 22.1,
+    "comparison": {
+      "image_path": "benchmark/images/dish_1559667973/rgb.png",
+      "oneshot": {
+        "kcal": 350.0,
+        "raw": "{\"kcal\": 350}"
+      },
+      "oneshot_seconds": 3.4612982000107877,
+      "estimate": {
+        "grounded": [
+          {
+            "ingredient": {
+              "name": "bagel",
+              "grams": 150.0,
+              "prep": "toasted"
+            },
+            "kcal": 417.0,
+            "kcal_per_100g": 278.0,
+            "fdc_description": "Bagels, egg",
+            "fdc_id": 174901
+          },
+          {
+            "ingredient": {
+              "name": "scrambled eggs",
+              "grams": 75.0,
+              "prep": null
+            },
+            "kcal": 111.75,
+            "kcal_per_100g": 149.0,
+            "fdc_description": "Egg, whole, cooked, scrambled",
+            "fdc_id": 172187
+          },
+          {
+            "ingredient": {
+              "name": "sour cream",
+              "grams": 25.0,
+              "prep": null
+            },
+            "kcal": 34.0,
+            "kcal_per_100g": 136.0,
+            "fdc_description": "Sour cream, light",
+            "fdc_id": 173443
+          }
+        ],
+        "adjustments": [],
+        "base_kcal": 562.75,
+        "low": 562.75,
+        "high": 562.75,
+        "point": 562.75
+      },
+      "pipeline_seconds": 22.063639799991506
+    }
+  },
+  {
+    "dish_id": "dish_1565020895",
+    "truth": 348.1,
+    "oneshot": 350.0,
+    "pl_low": 470.95,
+    "pl_high": 470.95,
+    "pl_point": 470.95,
+    "oneshot_s": 3.4,
+    "pipeline_s": 44.9,
+    "comparison": {
+      "image_path": "benchmark/images/dish_1565020895/rgb.png",
+      "oneshot": {
+        "kcal": 350.0,
+        "raw": "{\"kcal\": 350}"
+      },
+      "oneshot_seconds": 3.394184100005077,
+      "estimate": {
+        "grounded": [
+          {
+            "ingredient": {
+              "name": "raspberries",
+              "grams": 150.0,
+              "prep": null
+            },
+            "kcal": 78.0,
+            "kcal_per_100g": 52.0,
+            "fdc_description": "Raspberries, raw",
+            "fdc_id": 167755
+          },
+          {
+            "ingredient": {
+              "name": "blackberries",
+              "grams": 50.0,
+              "prep": null
+            },
+            "kcal": 21.5,
+            "kcal_per_100g": 43.0,
+            "fdc_description": "Blackberries, raw",
+            "fdc_id": 173946
+          },
+          {
+            "ingredient": {
+              "name": "strawberries",
+              "grams": 25.0,
+              "prep": null
+            },
+            "kcal": 8.75,
+            "kcal_per_100g": 35.0,
+            "fdc_description": "Strawberries, frozen",
+            "fdc_id": 2709285
+          },
+          {
+            "ingredient": {
+              "name": "grapes",
+              "grams": 30.0,
+              "prep": null
+            },
+            "kcal": 20.1,
+            "kcal_per_100g": 67.0,
+            "fdc_description": "Grapes, american type (slip skin), raw",
+            "fdc_id": 174682
+          },
+          {
+            "ingredient": {
+              "name": "banana slices",
+              "grams": 100.0,
+              "prep": null
+            },
+            "kcal": 21.0,
+            "kcal_per_100g": 21.0,
+            "fdc_description": "Melon, banana (Navajo)",
+            "fdc_id": 167629
+          },
+          {
+            "ingredient": {
+              "name": "almonds",
+              "grams": 20.0,
+              "prep": null
+            },
+            "kcal": 115.8,
+            "kcal_per_100g": 579.0,
+            "fdc_description": "Nuts, almonds",
+            "fdc_id": 170567
+          },
+          {
+            "ingredient": {
+              "name": "yogurt",
+              "grams": 50.0,
+              "prep": null
+            },
+            "kcal": 45.0,
+            "kcal_per_100g": 90.0,
+            "fdc_description": "Yogurt, soy",
+            "fdc_id": 2707444
+          },
+          {
+            "ingredient": {
+              "name": "granola",
+              "grams": 30.0,
+              "prep": null
+            },
+            "kcal": 160.8,
+            "kcal_per_100g": 536.0,
+            "fdc_description": "Granola bar, soft, milk chocolate coated, peanut butter",
+            "fdc_id": 168095
+          }
+        ],
+        "adjustments": [],
+        "base_kcal": 470.95,
+        "low": 470.95,
+        "high": 470.95,
+        "point": 470.95
+      },
+      "pipeline_seconds": 44.85352069999499
+    }
+  },
+  {
+    "dish_id": "dish_1561579867",
+    "truth": 369.4,
+    "oneshot": 250.0,
+    "pl_low": 167.3,
+    "pl_high": 172.3,
+    "pl_point": 169.8,
+    "oneshot_s": 3.4,
+    "pipeline_s": 40.0,
+    "comparison": {
+      "image_path": "benchmark/images/dish_1561579867/rgb.png",
+      "oneshot": {
+        "kcal": 250.0,
+        "raw": "{\"kcal\": 250}"
+      },
+      "oneshot_seconds": 3.4048466999956872,
+      "estimate": {
+        "grounded": [
+          {
+            "ingredient": {
+              "name": "olives",
+              "grams": 50.0,
+              "prep": null
+            },
+            "kcal": 58.0,
+            "kcal_per_100g": 116.0,
+            "fdc_description": "Olives, black",
+            "fdc_id": 2710090
+          },
+          {
+            "ingredient": {
+              "name": "beef",
+              "grams": 30.0,
+              "prep": null
+            },
+            "kcal": 69.3,
+            "kcal_per_100g": 231.0,
+            "fdc_description": "Beef, brisket",
+            "fdc_id": 2705851
+          },
+          {
+            "ingredient": {
+              "name": "herbs",
+              "grams": 10.0,
+              "prep": null
+            },
+            "kcal": 0.1,
+            "kcal_per_100g": 1.0,
+            "fdc_description": "Beverages, tea, herb, brewed, chamomile",
+            "fdc_id": 174156
+          },
+          {
+            "ingredient": {
+              "name": "dill",
+              "grams": 5.0,
+              "prep": null
+            },
+            "kcal": 0.7,
+            "kcal_per_100g": 14.0,
+            "fdc_description": "Pickles, dill",
+            "fdc_id": 2710078
+          },
+          {
+            "ingredient": {
+              "name": "sour cream",
+              "grams": 20.0,
+              "prep": null
+            },
+            "kcal": 39.2,
+            "kcal_per_100g": 196.0,
+            "fdc_description": "Sour cream, regular",
+            "fdc_id": 2705614
+          }
+        ],
+        "adjustments": [
+          {
+            "reason": "sour cream may have been mixed with additional fat or sugar, but this is uncertain given the small serving size.",
+            "low": 0.0,
+            "high": 5.0
+          }
+        ],
+        "base_kcal": 167.3,
+        "low": 167.3,
+        "high": 172.3,
+        "point": 169.8
+      },
+      "pipeline_seconds": 40.021817600005306
+    }
+  },
+  {
+    "dish_id": "dish_1563476646",
+    "truth": 380.2,
+    "oneshot": 450.0,
+    "pl_low": 440.2,
+    "pl_high": 440.2,
+    "pl_point": 440.2,
+    "oneshot_s": 3.4,
+    "pipeline_s": 23.2,
+    "comparison": {
+      "image_path": "benchmark/images/dish_1563476646/rgb.png",
+      "oneshot": {
+        "kcal": 450.0,
+        "raw": "{\"kcal\": 450}"
+      },
+      "oneshot_seconds": 3.396919100006926,
+      "estimate": {
+        "grounded": [
+          {
+            "ingredient": {
+              "name": "penne pasta",
+              "grams": 150.0,
+              "prep": null
+            },
+            "kcal": 135.0,
+            "kcal_per_100g": 90.0,
+            "fdc_description": "Pasta with Sliced Franks in Tomato Sauce, canned entree",
+            "fdc_id": 172091
+          },
+          {
+            "ingredient": {
+              "name": "beef chunks",
+              "grams": 100.0,
+              "prep": null
+            },
+            "kcal": 299.0,
+            "kcal_per_100g": 299.0,
+            "fdc_description": "Bologna, beef",
+            "fdc_id": 172012
+          },
+          {
+            "ingredient": {
+              "name": "green herbs",
+              "grams": 20.0,
+              "prep": null
+            },
+            "kcal": 6.2,
+            "kcal_per_100g": 31.0,
+            "fdc_description": "Cauliflower, green, raw",
+            "fdc_id": 169389
+          }
+        ],
+        "adjustments": [],
+        "base_kcal": 440.2,
+        "low": 440.2,
+        "high": 440.2,
+        "point": 440.2
+      },
+      "pipeline_seconds": 23.20337190000282
+    }
+  },
+  {
+    "dish_id": "dish_1562874250",
+    "truth": 394.4,
+    "oneshot": 450.0,
+    "pl_low": 179.75,
+    "pl_high": 184.75,
+    "pl_point": 182.25,
+    "oneshot_s": 3.4,
+    "pipeline_s": 23.2,
+    "comparison": {
+      "image_path": "benchmark/images/dish_1562874250/rgb.png",
+      "oneshot": {
+        "kcal": 450.0,
+        "raw": "{\"kcal\": 450}"
+      },
+      "oneshot_seconds": 3.3854681000084383,
+      "estimate": {
+        "grounded": [
+          {
+            "ingredient": {
+              "name": "paneer cubes",
+              "grams": 50.0,
+              "prep": "fried"
+            },
+            "kcal": null,
+            "kcal_per_100g": null,
+            "fdc_description": null,
+            "fdc_id": null
+          },
+          {
+            "ingredient": {
+              "name": "lentil mixture",
+              "grams": 100.0,
+              "prep": "cooked"
+            },
+            "kcal": 150.0,
+            "kcal_per_100g": 150.0,
+            "fdc_description": "Rice, white, with lentils, fat added",
+            "fdc_id": 2709030
+          },
+          {
+            "ingredient": {
+              "name": "green beans",
+              "grams": 75.0,
+              "prep": "steamed"
+            },
+            "kcal": 24.75,
+            "kcal_per_100g": 33.0,
+            "fdc_description": "Beans, snap, green, microwaved",
+            "fdc_id": 169965
+          }
+        ],
+        "adjustments": [
+          {
+            "reason": "fried paneer cubes may have absorbed cooking oil",
+            "low": 5.0,
+            "high": 10.0
+          }
+        ],
+        "base_kcal": 174.75,
+        "low": 179.75,
+        "high": 184.75,
+        "point": 182.25
+      },
+      "pipeline_seconds": 23.195020099999965
+    }
+  },
+  {
+    "dish_id": "dish_1565123881",
+    "truth": 406.8,
+    "oneshot": 650.0,
+    "pl_low": 585.95,
+    "pl_high": 600.95,
+    "pl_point": 593.45,
+    "oneshot_s": 3.4,
+    "pipeline_s": 43.3,
+    "comparison": {
+      "image_path": "benchmark/images/dish_1565123881/rgb.png",
+      "oneshot": {
+        "kcal": 650.0,
+        "raw": "{\"kcal\": 650}"
+      },
+      "oneshot_seconds": 3.411489599995548,
+      "estimate": {
+        "grounded": [
+          {
+            "ingredient": {
+              "name": "lettuce",
+              "grams": 50.0,
+              "prep": null
+            },
+            "kcal": 10.0,
+            "kcal_per_100g": 20.0,
+            "fdc_description": "Lettuce, raw",
+            "fdc_id": 2709789
+          },
+          {
+            "ingredient": {
+              "name": "zucchini",
+              "grams": 100.0,
+              "prep": "grilled"
+            },
+            "kcal": 306.0,
+            "kcal_per_100g": 306.0,
+            "fdc_description": "Bread, zucchini",
+            "fdc_id": 2707851
+          },
+          {
+            "ingredient": {
+              "name": "chicken breast",
+              "grams": 75.0,
+              "prep": null
+            },
+            "kcal": 144.0,
+            "kcal_per_100g": 192.0,
+            "fdc_description": "Chicken breast, baked, broiled, or roasted, skin eaten, from raw",
+            "fdc_id": 2705955
+          },
+          {
+            "ingredient": {
+              "name": "pizza crust",
+              "grams": 25.0,
+              "prep": "baked"
+            },
+            "kcal": 72.75,
+            "kcal_per_100g": 291.0,
+            "fdc_description": "PIZZA HUT 14\" Pepperoni Pizza, Pan Crust",
+            "fdc_id": 172053
+          },
+          {
+            "ingredient": {
+              "name": "tomato sauce",
+              "grams": 10.0,
+              "prep": null
+            },
+            "kcal": 10.4,
+            "kcal_per_100g": 104.0,
+            "fdc_description": "Tomato sauce, for use with vegetables",
+            "fdc_id": 2710247
+          },
+          {
+            "ingredient": {
+              "name": "pepperoni",
+              "grams": 10.0,
+              "prep": null
+            },
+            "kcal": 37.8,
+            "kcal_per_100g": 378.0,
+            "fdc_description": "Pepperoni, reduced fat",
+            "fdc_id": 2706186
+          }
+        ],
+        "adjustments": [
+          {
+            "reason": "breading on chicken breast",
+            "low": 5.0,
+            "high": 20.0
+          }
+        ],
+        "base_kcal": 580.95,
+        "low": 585.95,
+        "high": 600.95,
+        "point": 593.45
+      },
+      "pipeline_seconds": 43.29802830000699
+    }
+  },
+  {
+    "dish_id": "dish_1559581356",
+    "truth": 436.9,
+    "oneshot": 550.0,
+    "pl_low": 679.5,
+    "pl_high": 694.5,
+    "pl_point": 687.0,
+    "oneshot_s": 3.4,
+    "pipeline_s": 27.4,
+    "comparison": {
+      "image_path": "benchmark/images/dish_1559581356/rgb.png",
+      "oneshot": {
+        "kcal": 550.0,
+        "raw": "{\"kcal\": 550}"
+      },
+      "oneshot_seconds": 3.4095877000072505,
+      "estimate": {
+        "grounded": [
+          {
+            "ingredient": {
+              "name": "scrambled eggs",
+              "grams": 250.0,
+              "prep": null
+            },
+            "kcal": 372.5,
+            "kcal_per_100g": 149.0,
+            "fdc_description": "Egg, whole, cooked, scrambled",
+            "fdc_id": 172187
+          },
+          {
+            "ingredient": {
+              "name": "bacon strips",
+              "grams": 50.0,
+              "prep": "fried"
+            },
+            "kcal": 234.0,
+            "kcal_per_100g": 468.0,
+            "fdc_description": "Bacon, for use with vegetables",
+            "fdc_id": 2710239
+          },
+          {
+            "ingredient": {
+              "name": "broccoli florets",
+              "grams": 100.0,
+              "prep": null
+            },
+            "kcal": 28.0,
+            "kcal_per_100g": 28.0,
+            "fdc_description": "Broccoli, flower clusters, raw",
+            "fdc_id": 169330
+          },
+          {
+            "ingredient": {
+              "name": "mixed greens salad",
+              "grams": 75.0,
+              "prep": null
+            },
+            "kcal": 15.0,
+            "kcal_per_100g": 20.0,
+            "fdc_description": "McDONALD'S, Side Salad",
+            "fdc_id": 172074
+          }
+        ],
+        "adjustments": [
+          {
+            "reason": "butter for frying bacon",
+            "low": 30.0,
+            "high": 45.0
+          }
+        ],
+        "base_kcal": 649.5,
+        "low": 679.5,
+        "high": 694.5,
+        "point": 687.0
+      },
+      "pipeline_seconds": 27.411183700009133
+    }
+  },
+  {
+    "dish_id": "dish_1566502505",
+    "truth": 454.5,
+    "oneshot": 450.0,
+    "pl_low": 297.15,
+    "pl_high": 297.15,
+    "pl_point": 297.15,
+    "oneshot_s": 3.4,
+    "pipeline_s": 28.9,
+    "comparison": {
+      "image_path": "benchmark/images/dish_1566502505/rgb.png",
+      "oneshot": {
+        "kcal": 450.0,
+        "raw": "{\"kcal\": 450}"
+      },
+      "oneshot_seconds": 3.3849705000029644,
+      "estimate": {
+        "grounded": [
+          {
+            "ingredient": {
+              "name": "spinach leaves",
+              "grams": 150.0,
+              "prep": null
+            },
+            "kcal": 34.5,
+            "kcal_per_100g": 23.0,
+            "fdc_description": "Spinach, raw",
+            "fdc_id": 168462
+          },
+          {
+            "ingredient": {
+              "name": "grilled pork slices",
+              "grams": 75.0,
+              "prep": "grilled"
+            },
+            "kcal": 201.75,
+            "kcal_per_100g": 269.0,
+            "fdc_description": "Frankfurter, pork",
+            "fdc_id": 172964
+          },
+          {
+            "ingredient": {
+              "name": "yellow rice",
+              "grams": 50.0,
+              "prep": null
+            },
+            "kcal": 51.5,
+            "kcal_per_100g": 103.0,
+            "fdc_description": "Yellow rice, cooked, fat added",
+            "fdc_id": 2708421
+          },
+          {
+            "ingredient": {
+              "name": "corn kernels",
+              "grams": 10.0,
+              "prep": null
+            },
+            "kcal": 9.4,
+            "kcal_per_100g": 94.0,
+            "fdc_description": "Corn, sweet, yellow, frozen, kernels on cob, cooked, boiled, drained, with salt",
+            "fdc_id": 169349
+          }
+        ],
+        "adjustments": [],
+        "base_kcal": 297.15,
+        "low": 297.15,
+        "high": 297.15,
+        "point": 297.15
+      },
+      "pipeline_seconds": 28.876480499995523
+    }
+  },
+  {
+    "dish_id": "dish_1566588016",
+    "truth": 472.2,
+    "oneshot": 450.0,
+    "pl_low": 560.2,
+    "pl_high": 560.2,
+    "pl_point": 560.2,
+    "oneshot_s": 3.4,
+    "pipeline_s": 22.1,
+    "comparison": {
+      "image_path": "benchmark/images/dish_1566588016/rgb.png",
+      "oneshot": {
+        "kcal": 450.0,
+        "raw": "{\"kcal\": 450}"
+      },
+      "oneshot_seconds": 3.406211699999403,
+      "estimate": {
+        "grounded": [
+          {
+            "ingredient": {
+              "name": "salmon fillet",
+              "grams": 150.0,
+              "prep": "grilled"
+            },
+            "kcal": 355.5,
+            "kcal_per_100g": 237.0,
+            "fdc_description": "Fish, salmon, steamed",
+            "fdc_id": 2706290
+          },
+          {
+            "ingredient": {
+              "name": "sweet potato slices",
+              "grams": 200.0,
+              "prep": "roasted"
+            },
+            "kcal": 202.0,
+            "kcal_per_100g": 101.0,
+            "fdc_description": "Sweet potato, canned, mashed",
+            "fdc_id": 169305
+          },
+          {
+            "ingredient": {
+              "name": "green onion",
+              "grams": 10.0,
+              "prep": "raw"
+            },
+            "kcal": 2.7,
+            "kcal_per_100g": 27.0,
+            "fdc_description": "Onions, young green, tops only",
+            "fdc_id": 170006
+          }
+        ],
+        "adjustments": [],
+        "base_kcal": 560.2,
+        "low": 560.2,
+        "high": 560.2,
+        "point": 560.2
+      },
+      "pipeline_seconds": 22.1460597999976
+    }
+  },
+  {
+    "dish_id": "dish_1566931620",
+    "truth": 494.6,
+    "oneshot": 450.0,
+    "pl_low": 226.7,
+    "pl_high": 226.7,
+    "pl_point": 226.7,
+    "oneshot_s": 3.4,
+    "pipeline_s": 21.6,
+    "comparison": {
+      "image_path": "benchmark/images/dish_1566931620/rgb.png",
+      "oneshot": {
+        "kcal": 450.0,
+        "raw": "{\"kcal\": 450}"
+      },
+      "oneshot_seconds": 3.3967462000000523,
+      "estimate": {
+        "grounded": [
+          {
+            "ingredient": {
+              "name": "lettuce",
+              "grams": 50.0,
+              "prep": "raw"
+            },
+            "kcal": 7.5,
+            "kcal_per_100g": 15.0,
+            "fdc_description": "Lettuce, green leaf, raw",
+            "fdc_id": 169249
+          },
+          {
+            "ingredient": {
+              "name": "broccoli florets",
+              "grams": 30.0,
+              "prep": "raw"
+            },
+            "kcal": 8.4,
+            "kcal_per_100g": 28.0,
+            "fdc_description": "Broccoli, flower clusters, raw",
+            "fdc_id": 169330
+          },
+          {
+            "ingredient": {
+              "name": "chicken breast chunks",
+              "grams": 75.0,
+              "prep": "cooked"
+            },
+            "kcal": 144.0,
+            "kcal_per_100g": 192.0,
+            "fdc_description": "Chicken breast, baked, broiled, or roasted, skin eaten, from raw",
+            "fdc_id": 2705955
+          },
+          {
+            "ingredient": {
+              "name": "avocado slices",
+              "grams": 40.0,
+              "prep": "raw"
+            },
+            "kcal": 66.8,
+            "kcal_per_100g": 167.0,
+            "fdc_description": "Avocados, raw, California",
+            "fdc_id": 171706
+          }
+        ],
+        "adjustments": [],
+        "base_kcal": 226.7,
+        "low": 226.7,
+        "high": 226.7,
+        "point": 226.7
+      },
+      "pipeline_seconds": 21.64928990000044
+    }
+  },
+  {
+    "dish_id": "dish_1567024252",
+    "truth": 512.0,
+    "oneshot": 450.0,
+    "pl_low": 1344.35,
+    "pl_high": 1344.35,
+    "pl_point": 1344.35,
+    "oneshot_s": 3.4,
+    "pipeline_s": 61.6,
+    "comparison": {
+      "image_path": "benchmark/images/dish_1567024252/rgb.png",
+      "oneshot": {
+        "kcal": 450.0,
+        "raw": "{\"kcal\": 450}"
+      },
+      "oneshot_seconds": 3.4157943000027444,
+      "estimate": {
+        "grounded": [
+          {
+            "ingredient": {
+              "name": "zucchini slices",
+              "grams": 150.0,
+              "prep": "grilled"
+            },
+            "kcal": 459.0,
+            "kcal_per_100g": 306.0,
+            "fdc_description": "Bread, zucchini",
+            "fdc_id": 2707851
+          },
+          {
+            "ingredient": {
+              "name": "yellow squash slices",
+              "grams": 50.0,
+              "prep": "grilled"
+            },
+            "kcal": 9.5,
+            "kcal_per_100g": 19.0,
+            "fdc_description": "Summer squash, yellow, raw",
+            "fdc_id": 2709807
+          },
+          {
+            "ingredient": {
+              "name": "cauliflower florets",
+              "grams": 100.0,
+              "prep": "steamed"
+            },
+            "kcal": 41.0,
+            "kcal_per_100g": 41.0,
+            "fdc_description": "Cauliflower, pickled",
+            "fdc_id": 2710074
+          },
+          {
+            "ingredient": {
+              "name": "tomato halves",
+              "grams": 30.0,
+              "prep": "raw"
+            },
+            "kcal": 4.8,
+            "kcal_per_100g": 16.0,
+            "fdc_description": "Tomatoes, orange, raw",
+            "fdc_id": 170502
+          },
+          {
+            "ingredient": {
+              "name": "red onion slices",
+              "grams": 25.0,
+              "prep": "raw"
+            },
+            "kcal": 11.0,
+            "kcal_per_100g": 44.0,
+            "fdc_description": "Onions, red, raw",
+            "fdc_id": 790577
+          },
+          {
+            "ingredient": {
+              "name": "green leaf lettuce",
+              "grams": 50.0,
+              "prep": "raw"
+            },
+            "kcal": 7.5,
+            "kcal_per_100g": 15.0,
+            "fdc_description": "Lettuce, green leaf, raw",
+            "fdc_id": 169249
+          },
+          {
+            "ingredient": {
+              "name": "tomato basil vinaigrette dressing",
+              "grams": 30.0,
+              "prep": null
+            },
+            "kcal": 97.8,
+            "kcal_per_100g": 326.0,
+            "fdc_description": "Bacon and tomato dressing",
+            "fdc_id": 2710198
+          },
+          {
+            "ingredient": {
+              "name": "feta cheese crumbles",
+              "grams": 20.0,
+              "prep": null
+            },
+            "kcal": 53.0,
+            "kcal_per_100g": 265.0,
+            "fdc_description": "Cheese, feta",
+            "fdc_id": 173420
+          },
+          {
+            "ingredient": {
+              "name": "pizza crust",
+              "grams": 150.0,
+              "prep": "baked"
+            },
+            "kcal": 436.5,
+            "kcal_per_100g": 291.0,
+            "fdc_description": "PIZZA HUT 14\" Pepperoni Pizza, Pan Crust",
+            "fdc_id": 172053
+          },
+          {
+            "ingredient": {
+              "name": "mozzarella cheese",
+              "grams": 75.0,
+              "prep": "melted"
+            },
+            "kcal": 224.25,
+            "kcal_per_100g": 299.0,
+            "fdc_description": "Cheese, mozzarella, whole milk",
+            "fdc_id": 170845
+          }
+        ],
+        "adjustments": [],
+        "base_kcal": 1344.35,
+        "low": 1344.35,
+        "high": 1344.35,
+        "point": 1344.35
+      },
+      "pipeline_seconds": 61.55229940000572
+    }
+  },
+  {
+    "dish_id": "dish_1558114609",
+    "truth": 540.9,
+    "oneshot": 450.0,
+    "pl_low": 541.7,
+    "pl_high": 551.7,
+    "pl_point": 546.7,
+    "oneshot_s": 3.4,
+    "pipeline_s": 22.9,
+    "comparison": {
+      "image_path": "benchmark/images/dish_1558114609/rgb.png",
+      "oneshot": {
+        "kcal": 450.0,
+        "raw": "{\"kcal\": 450}"
+      },
+      "oneshot_seconds": 3.3985459999967134,
+      "estimate": {
+        "grounded": [
+          {
+            "ingredient": {
+              "name": "bacon strips",
+              "grams": 50.0,
+              "prep": "fried"
+            },
+            "kcal": 126.5,
+            "kcal_per_100g": 253.0,
+            "fdc_description": "Bacon, turkey, low sodium",
+            "fdc_id": 171640
+          },
+          {
+            "ingredient": {
+              "name": "grapes",
+              "grams": 100.0,
+              "prep": null
+            },
+            "kcal": 67.0,
+            "kcal_per_100g": 67.0,
+            "fdc_description": "Grapes, american type (slip skin), raw",
+            "fdc_id": 174682
+          },
+          {
+            "ingredient": {
+              "name": "almonds",
+              "grams": 30.0,
+              "prep": null
+            },
+            "kcal": 173.7,
+            "kcal_per_100g": 579.0,
+            "fdc_description": "Nuts, almonds",
+            "fdc_id": 170567
+          },
+          {
+            "ingredient": {
+              "name": "sausage links",
+              "grams": 50.0,
+              "prep": null
+            },
+            "kcal": 154.5,
+            "kcal_per_100g": 309.0,
+            "fdc_description": "Sausage, smoked link sausage, pork",
+            "fdc_id": 174584
+          }
+        ],
+        "adjustments": [
+          {
+            "reason": "breading or batter",
+            "low": 20.0,
+            "high": 30.0
+          }
+        ],
+        "base_kcal": 521.7,
+        "low": 541.7,
+        "high": 551.7,
+        "point": 546.7
+      },
+      "pipeline_seconds": 22.918256699995254
+    }
+  },
+  {
+    "dish_id": "dish_1563302447",
+    "truth": 561.4,
+    "oneshot": 580.0,
+    "pl_low": 382.7,
+    "pl_high": 392.7,
+    "pl_point": 387.7,
+    "oneshot_s": 3.4,
+    "pipeline_s": 27.0,
+    "comparison": {
+      "image_path": "benchmark/images/dish_1563302447/rgb.png",
+      "oneshot": {
+        "kcal": 580.0,
+        "raw": "{\"kcal\": 580}"
+      },
+      "oneshot_seconds": 3.380726700008381,
+      "estimate": {
+        "grounded": [
+          {
+            "ingredient": {
+              "name": "carrot slice",
+              "grams": 50.0,
+              "prep": "raw"
+            },
+            "kcal": 20.5,
+            "kcal_per_100g": 41.0,
+            "fdc_description": "Carrots, raw",
+            "fdc_id": 170393
+          },
+          {
+            "ingredient": {
+              "name": "potato cube",
+              "grams": 20.0,
+              "prep": "roasted"
+            },
+            "kcal": 53.2,
+            "kcal_per_100g": 266.0,
+            "fdc_description": "Bread, potato",
+            "fdc_id": 167943
+          },
+          {
+            "ingredient": {
+              "name": "chicken thigh",
+              "grams": 100.0,
+              "prep": "grilled"
+            },
+            "kcal": 221.0,
+            "kcal_per_100g": 221.0,
+            "fdc_description": "Chicken, broilers or fryers, thigh, meat and skin, raw",
+            "fdc_id": 172385
+          },
+          {
+            "ingredient": {
+              "name": "lettuce leaf",
+              "grams": 30.0,
+              "prep": "raw"
+            },
+            "kcal": 6.0,
+            "kcal_per_100g": 20.0,
+            "fdc_description": "Lettuce, raw",
+            "fdc_id": 2709789
+          },
+          {
+            "ingredient": {
+              "name": "mushroom slice",
+              "grams": 25.0,
+              "prep": "saut\u00e9ed"
+            },
+            "kcal": 72.0,
+            "kcal_per_100g": 288.0,
+            "fdc_description": "Mushrooms, stuffed",
+            "fdc_id": 2710052
+          }
+        ],
+        "adjustments": [
+          {
+            "reason": "mushroom slice saut\u00e9ed implies added oil",
+            "low": 10.0,
+            "high": 20.0
+          }
+        ],
+        "base_kcal": 372.7,
+        "low": 382.7,
+        "high": 392.7,
+        "point": 387.7
+      },
+      "pipeline_seconds": 26.972191900000325
+    }
+  }
+]

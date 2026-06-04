@@ -1,0 +1,23 @@
+{
+  "_comment": "Template evaluation manifest for evaluate_live. Replace image_path with real photos and ground_truth_kcal with measured/label values (e.g. from Nutrition5k or a nutrition label). image_path is resolved relative to your working directory. Run: python -m evals.harness --manifest evals/manifest.sample.json",
+  "dishes": [
+    {
+      "dish_id": "example_chicken_rice",
+      "ground_truth_kcal": 648,
+      "image_path": "evals/sample_images/example_chicken_rice.jpg",
+      "total_mass_g": 440
+    },
+    {
+      "dish_id": "example_caesar_salad",
+      "ground_truth_kcal": 621,
+      "image_path": "evals/sample_images/example_caesar_salad.jpg",
+      "total_mass_g": 270
+    },
+    {
+      "dish_id": "example_pancakes",
+      "ground_truth_kcal": 650,
+      "image_path": "evals/sample_images/example_pancakes.jpg",
+      "total_mass_g": 300
+    }
+  ]
+}

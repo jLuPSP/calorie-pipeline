@@ -1,0 +1,26 @@
+# Secrets
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.venv/
+venv/
+
+# Tooling
+.mypy_cache/
+.ruff_cache/
+.pytest_cache/
+
+# Eval inputs the user supplies locally (not vendored)
+evals/sample_images/
+evals/nutrition5k/
+
+# Benchmark: keep the manifest, scripts, and results (evidence); not the bulk.
+benchmark/images/
+benchmark/n5k_cafe1.csv
+benchmark/n5k_cafe2.csv
