@@ -37,6 +37,32 @@ def load():
     return t, o, llm, comb
 
 
+def recipe_ablation():
+    """The headline: each recipe step's measured effect, building past the baseline."""
+    steps = ["single prompt  (baseline)", "+ decompose & ground in USDA", "+ model picks the match",
+             "+ blend with the prompt", "+ clamp to the prompt  (shipped)"]
+    mae = [90, 141, 125, 87, 86]
+    colors = ["#5b6b7a", MUTED, "#b9876b", WIN, WIN]
+    fig, ax = plt.subplots(figsize=(8.6, 4.4))
+    bars = ax.barh(range(len(steps)), mae, color=colors, height=0.6)
+    ax.axvline(90, color="#5b6b7a", ls="--", lw=1.3, zorder=0)
+    ax.text(90, 4.62, " baseline to beat", color="#5b6b7a", fontsize=9, va="center")
+    for i, (b, m) in enumerate(zip(bars, mae)):
+        beat = m < 90
+        ax.text(b.get_width() - 4, i, f"{m:.0f}", ha="right", va="center", color="white", fontweight="bold")
+        if beat:
+            ax.text(b.get_width() + 3, i, "beats baseline", va="center", color=WIN, fontsize=8.5)
+    ax.set_yticks(range(len(steps)), steps)
+    ax.invert_yaxis()
+    ax.set_xlabel("Mean error vs lab-measured calories, kcal  (lower is better)")
+    ax.set_title("How to beat a single prompt: a measured recipe")
+    ax.spines[["top", "right"]].set_visible(False)
+    ax.set_xlim(0, 158)
+    fig.tight_layout()
+    fig.savefig(DOCS / "recipe_ablation.png", bbox_inches="tight")
+    plt.close(fig)
+
+
 def hero_results():
     methods = ["Decomposed pipeline\n(alone)", "Pipeline +\nLLM match", "Single prompt\n(baseline)",
                "Combined\n(shipped)"]
@@ -117,6 +143,7 @@ def token_cost():
 
 
 if __name__ == "__main__":
+    recipe_ablation()
     hero_results()
     predicted_vs_measured()
     noise_vs_signal()

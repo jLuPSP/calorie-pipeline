@@ -1,36 +1,54 @@
 # calorie-pipeline
 
-**A study in decomposition vs. model size — and an honest benchmark that
-complicated the answer.**
+### How to (actually) beat a single prompt — a measured recipe
 
-A multi-stage calorie estimator that runs entirely on local 7B models (via
-[Ollama](https://ollama.com)) plus a deterministic nutrition database, built to
-test a thesis: that decomposing the problem would beat the **same** model asked to
-one-shot a food photo.
+A worked, reproducible answer to a question every applied-AI engineer hits:
+*you have a single-prompt baseline; how do you reliably do better?* The task here
+is estimating calories from a food photo, on local 7B models
+([Ollama](https://ollama.com)) — but the recipe is the point, and it is backed by
+an honest benchmark against **24 meals with lab-measured calories**
+([Nutrition5k](https://github.com/google-research-datasets/Nutrition5k)), not
+vibes.
 
-Then I benchmarked it against 24 meals with **lab-measured** calories
-([Nutrition5k](https://github.com/google-research-datasets/Nutrition5k)). The
-result was not what I expected, and the repo reports it straight: on raw accuracy
-the one-shot baseline **won** (MAE 90 vs 141 kcal). What the decomposition buys is
-not accuracy but **accountability** — auditable reasoning, loud-not-silent
-failure, and calibration that doesn't depend on the test set matching a model's
-priors. The full story, including the four-version debugging trail and the reason
-decomposition structurally loses on an in-distribution benchmark, is in
-**[the blog post](blog/decomposition-beats-model-size.md)** and
-**[`benchmark/`](benchmark/)**.
-
-Everything runs locally. Target hardware is a single 16 GB GPU (RTX 4080 Super).
-Nothing leaves the machine.
+The headline: a single prompt is a *strong* baseline (it regresses to a sensible
+prior), and the obvious move — "just decompose it" — **loses on its own.** What
+beats the prompt is grounding the facts a database knows, then using the
+decomposition as an independent, sanity-bounded *correction* to the prompt.
 
 <p align="center">
-  <img src="docs/hero_results.png" alt="Mean error by method: decomposed pipeline 141, +LLM match 125, single prompt 90, combined 86" width="760">
+  <img src="docs/recipe_ablation.png" alt="Recipe ablation: single prompt 90, +decompose 141, +model match 125, +blend 87, +clamp 86" width="820">
 </p>
 
-> **The punchline.** A single prompt beats the decomposed pipeline on accuracy.
-> But the two make *different* mistakes, so a sanity-bounded **blend of them beats
-> the prompt** — at ~1.7× the tokens, and with a full audit trail. That's the
-> well-architected result: not decomposition *vs.* prompting, but the
-> decomposition as an independent, auditable *correction* to the prompt.
+## The recipe
+
+Each step's effect is measured (mean error vs lab-measured calories, lower is
+better; full ablation above):
+
+1. **Decompose so you can *ground* facts** — identify foods, look their calories
+   up in USDA FoodData Central instead of asking the model. Free accuracy, zero
+   tokens — but **not sufficient alone** (decomposition by itself *raises* error
+   to 141: its per-stage errors compound).
+2. **Use the model for judgment, never arithmetic** — let it *pick* the right
+   database row (a judgment), not produce a number (141 → 125).
+3. **Keep the cheap single prompt** as an independent second estimate.
+4. **Blend them** — the prompt and the decomposition make weakly-correlated errors
+   (r = 0.29), so a variance-weighted average beats both (→ **87**).
+5. **Sanity-bound the decomposition to the prompt** — clamp it to ±40% of the
+   one-shot so its occasional blow-ups can't run away (→ **86, beats the 90
+   baseline**). This is the shipped `combine_estimates`.
+6. **Don't reach for autonomy unless the task needs it** — this task's control
+   flow is *fixed* (identify → ground → reason → combine), so a deterministic
+   workflow plus a sanity bound is the right tool. A self-correcting agent adds
+   cost, latency, and failure surface for a path you can just write down. Spend
+   agency only where the steps are genuinely variable.
+
+The transferable lesson: **don't replace your prompt — correct it.** Ground the
+verifiable parts for free, keep the cheap baseline, and ensemble the two with a
+sanity bound. Everything below is the evidence for *why* each step is there.
+
+Everything runs locally on a single 16 GB GPU. Nothing leaves the machine. Full
+write-up: **[the blog post](blog/how-to-beat-a-single-prompt.md)** ·
+**[`benchmark/results/summary.md`](benchmark/results/summary.md)**.
 
 ```
 $ python -m calorie_pipeline.run meal.jpg
@@ -63,17 +81,22 @@ answer of all.
 
 ---
 
-## The thesis, in one paragraph
+## Why it works, in one paragraph
 
 Photo calorie estimation looks like one judgment ("how many calories is this?")
 but is really three very different problems stacked together: **perception**
 (what food, how much), **recall of measured facts** (calories per 100 g), and
 **estimation of the invisible** (the oil, butter, and sugar a photo cannot show).
-A one-shot model does all three at once, badly, and hands you a single number
-with no way to check it. This project pulls them apart, routes each to the tool
-that should own it — a model for perception, a *database* for facts, a model for
-the invisible, *arithmetic* for the total — and the accuracy follows from the
-decomposition. Same model. Different architecture. Better answer.
+A one-shot model does all three at once and hands you a single number with no way
+to check it. Decomposition pulls them apart and routes each to the tool that
+should own it — a model for perception, a *database* for facts, a model for the
+invisible, *arithmetic* for the total. The catch the benchmark forced me to admit:
+decomposition alone is **not** more accurate — chaining estimates *multiplies*
+their errors, so the decomposed number is high-variance and loses to the prompt's
+prior-anchored guess. The win comes from what decomposition *enables*: grounding
+the one fact that has a right answer (calories/100 g) for free, and producing an
+*independent* estimate whose errors don't correlate with the prompt's — so blending
+the two, with a sanity bound, beats either. Correct the prompt; don't replace it.
 
 ---
 
@@ -288,7 +311,7 @@ prompt, and the stage that *drives the accuracy is free*.
 </p>
 
 Full analysis and the four-version debugging trail:
-**[the blog post](blog/decomposition-beats-model-size.md)** ·
+**[the blog post](blog/how-to-beat-a-single-prompt.md)** ·
 [`benchmark/results/summary.md`](benchmark/results/summary.md).
 
 ### Reproduce it
@@ -342,7 +365,7 @@ loudly, shows its work, and doesn't depend on the photo matching a model's prior
 > Forcing real decomposition and adding the relevance-guarded, pooled USDA match
 > fixed those — the "deterministic" lookup needed the most engineering of any
 > stage. The full four-version debugging trail is in the
-> [blog post](blog/decomposition-beats-model-size.md).
+> [blog post](blog/how-to-beat-a-single-prompt.md).
 
 ---
 

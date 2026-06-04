@@ -1,4 +1,4 @@
-"""Evaluation harness for the decomposition-beats-model-size thesis.
+"""Evaluation harness for the 'how to beat a single prompt' benchmark.
 
 This package measures the claim instead of asserting it. It scores two methods —
 the one-shot baseline and the decomposed pipeline — against ground-truth meal

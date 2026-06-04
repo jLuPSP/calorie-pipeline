@@ -1,43 +1,45 @@
-# I Tried to Prove Decomposition Beats Model Size. The Benchmark Said No.
+# How to Beat a Single Prompt: A Measured Recipe
 
-### What a four-stage local-LLM calorie estimator — and the experiment that embarrassed it — taught me about building with imperfect models
+### Every applied-AI engineer hits the same wall — you have a one-shot baseline, now do better. Here is a worked, benchmarked answer.
 
 ---
 
-I set out to demonstrate a clean thesis: that a **decomposed** pipeline of small
-local models would beat the *same* model asked to do the whole job in one shot.
-Architecture over scale. I built it, it produced beautiful auditable estimates,
-and then I did the thing you're supposed to do and almost nobody does — I built a
-benchmark that could prove me wrong.
+You give a model a food photo and ask "how many calories?" It says **540** — one
+confident number, no hedge, no provenance. It *feels* like an estimate; it's
+really a vibe. And it is a genuinely *strong* baseline, because the model has
+learned that "a plate of food is about 400 calories" and regresses to that prior.
+So: how do you reliably beat it?
 
-It did.
+The recipe, measured on 24 meals with **lab-measured** calories (mean absolute
+error vs ground truth — lower is better):
 
-On 24 real meals with **lab-measured** calorie counts, a single 7B model glancing
-at the photo and blurting one number beat my elegant four-stage pipeline on every
-accuracy metric that matters. Mean absolute error of **90 kcal** versus **141**.
-It won 16 of 24 dishes.
+| step | MAE | |
+|---|---:|---|
+| single prompt (baseline) | 90 | the bar |
+| + decompose & ground facts in USDA | 141 | **worse alone** |
+| + let the model pick the database match | 125 | |
+| + keep the prompt, blend the two | 87 | beats the bar |
+| + clamp the decomposition to the prompt | **86** | **shipped** |
 
-This post is about that result, because the honest negative is worth more than
-the triumphant positive I was hoping to write. The autopsy turned up something
-genuinely non-obvious about *why* decomposition lost — and about what it actually
-buys you, which turns out not to be accuracy at all.
+Five moves, two of which are counterintuitive — and the headline lesson is in the
+second row: **the obvious idea, "just decompose it," loses on its own.** What
+beats the prompt is grounding the verifiable facts, then using the decomposition
+as an independent, sanity-bounded *correction* to the cheap baseline. This post is
+the evidence for each step — including the part where I built the decomposition
+convinced it would win, benchmarked it, and watched it lose.
 
-> **Follow along.** Every number below is reproducible with one command — the
-> full system, benchmark, and experiments are in the repo (MIT, runs local on a
-> 16 GB GPU). Jump to [*Follow along: reproduce every number*](#follow-along-reproduce-every-number-in-this-post)
+> **Follow along.** Every number is reproducible with one command — the full
+> system, benchmark, and experiments are in the repo (MIT, runs local on a 16 GB
+> GPU). Jump to [*Follow along: reproduce every number*](#follow-along-reproduce-every-number-in-this-post)
 > for the commands.
 
 ---
 
-## The seduction, and the architecture
+## Step 1 — Decompose, but for *grounding*, not for its own sake
 
-Show a vision model a plate of food and ask "how many calories?" and it answers
-instantly: **540**. Not a range, not a hedge — a clean, confident, unaccountable
-number. It *feels* like an estimate. It's really a vibe.
-
-The decomposition bet was that you could do better by pulling the question apart.
-"How many calories is this meal?" is not one problem; it's at least three, with
-totally different character:
+The bet behind decomposition is that you can do better than that single vibe by
+pulling the question apart. "How many calories is this meal?" is not one problem;
+it's at least three, with totally different character:
 
 1. **Perception** — *what foods, how much?* What vision models are good at.
 2. **A measured fact** — *how many kcal per 100 g of that food?* A database has
