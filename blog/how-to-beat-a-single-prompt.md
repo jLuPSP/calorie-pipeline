@@ -57,6 +57,10 @@ That is not a lucky dish. Across all 24:
 One-shot 504, workflow 181. The same model, wrapped correctly, cuts its error by 64
 percent.
 
+Every number here is mean absolute error against the lab-measured truth, averaged
+over the 24 dishes, and the gap is checked with a paired bootstrap so a win has to
+clear the noise rather than just look good on a few photos.
+
 ## Why it works
 
 A vision model bundles two very different skills: perception (what is this) and
@@ -69,6 +73,24 @@ That is the part worth keeping, and it has nothing to do with food. When a model
 confidently wrong about facts, do not prompt it harder. Find the one step it is bad
 at, and give that step to something built for it, a database, a tool, a calculator.
 Let the model do judgment, not lookup.
+
+## What it costs
+
+The workflow is not free. It makes two model calls (the model identifies the food,
+then a small text model reasons about hidden oil and sugar) where the one-shot
+makes one. On a model with clean token accounting that ran about 1.7x the tokens of
+a single prompt. The USDA lookup that drives the accuracy adds nothing, because it
+is an HTTP request to a database, not a generation.
+
+But the same split that adds a call is what keeps the pipeline cheap. Because the
+stages are separate, you size each one on its own. The lookup needs no model. The
+reasoning is text only, so it runs on a small fast text model, not the vision one.
+You pay for the heavy vision model on the single step that actually needs to see,
+and nowhere else. That is how a pipeline of small local models comes out quicker
+and cheaper than one-shotting one large model for everything, and you can swap any
+stage's model with one environment variable, no code change. Right-size each step
+instead of paying frontier prices to do lookup and arithmetic a database does for
+free.
 
 ## The honest caveat
 
