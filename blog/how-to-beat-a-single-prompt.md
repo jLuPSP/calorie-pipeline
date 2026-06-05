@@ -10,8 +10,7 @@ Claude or ChatGPT to better determine gains.
 
 ## The OneShot way: ask the model
 
-Show gemma4:12b a photo and ask for the total. It answers instantly, one number, no
-reasoning, no provenance. The estimate is not close. Across 24 dishes its mean error was
+Show gemma4:12b a photo and ask for the total. It answers instantly and the estimate is not close. Across 24 dishes its mean error was
 504 calories, and it tends to guess somewhere between 700 and 1,250 almost
 regardless of what is on the plate.
 
@@ -46,11 +45,11 @@ Here is one real dish, both ways:
 ![A worked example: one-shot vs the grounded workflow on one photo](../docs/worked_example.png)
 
 One-shot says 1,250. The workflow identifies the food, grounds each item in USDA
-FoodData Central, sums it, and lands at 547. The measured truth was 561.
+FoodData Central, sums it, and lands at 547. The measured truth was 561, and I found this is not a one off.
 
 ## The result
 
-That is not a one-off. Across all 24 dishes:
+Across all 24 dishes:
 
 ![gemma4 12B: one-shot 504 vs workflow 181](../docs/gemma_result.png)
 
@@ -71,23 +70,28 @@ Let the model do judgment, not lookup.
 
 ## What it costs
 
-The multi-step workflow makes two model calls (the model identifies the food,
-then a small text model reasons about hidden oil and sugar) where the one-shot
-makes one. On a model with clean token accounting that ran about 1.7x the tokens of
-a single prompt. The USDA lookup that drives the accuracy adds nothing, because it
-is an HTTP request to a database, not a generation.
+The honest catch first: the workflow uses more tokens than the one-shot, about 1.7x.
+On paper that sounds more expensive, but in actuality it matters which models are using what tokens.
 
-But the same split that adds a call is what keeps the pipeline cheap. Because the
-stages are separate, you size each one on its own. The lookup needs no model. The
-reasoning is text only, so it runs on a small fast text model, not the vision one.
-You pay for the heavy vision model on the single step that actually needs to see,
-and nowhere else. That is how a pipeline of small local models comes out quicker
-and cheaper than one-shotting one large model for everything, and you can swap any
-stage's model with one environment variable, no code change. Right-size each step's model
-instead of paying frontier prices to do lookup and arithmetic a database does for
-free.
+The one-shot spends every token on the 12B. The workflow touches the 12B exactly
+once, for the only step that needs eyes, then switches models for the rest: the
+reasoning about hidden oil and sugar runs on a 7B, roughly half the size and faster,
+and the lookup and the sum run on no model at all. So the extra tokens are cheap
+tokens and free tokens, and the expensive model gets used once. The 64 percent gain
+itself comes from the USDA lookup, which is an HTTP request to a database, not a
+generation, so it costs nothing. I bought the accuracy with a free lookup, not with
+more inference.
 
-## Where it is rough
+That is the whole cost argument: spend tokens where they are cheap, and spend the
+expensive model only where it is earned. The naive way to chase the same number is
+to make the big model work harder, more reasoning, more samples, a bigger model,
+which piles cost onto the priciest thing you own. The workflow goes the other way.
+And because each stage's model is a single environment variable, you keep
+right-sizing: a smaller vision model here, a smaller text model there, nothing for
+the lookup. A one-shot is all or nothing, one model paying full price for every job.
+Model switching is what lets you stop doing that.
+
+## Limitations
 
 Twenty-four dishes is a small benchmark and the matching is
 the weak link: when USDA has no clean row for the food the model named, that item
