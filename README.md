@@ -1,48 +1,49 @@
 # calorie-pipeline
 
-An honest benchmark of nine ways to estimate calories from a photo, run across two
-model sizes against lab-measured ground truth, all local. The finding: capability
-is not the lever. Fancier prompting made a one-shot worse, and a bigger model made
-it six times worse. The only thing that moved accuracy was grounding the model's
-specific weakness in a multimodal workflow.
+Can a local 12B vision model estimate the calories in a meal from a photo? Asked
+directly, no. Wrapped in a small workflow that grounds the facts in a database,
+yes. Same model, 64 percent less error, measured against lab truth.
 
-Full write-up and the reasoning: **[the article](blog/how-to-beat-a-single-prompt.md)**.
+![One-shot vs the grounded workflow on one photo](docs/worked_example.png)
 
-![Nine methods ranked by error](docs/leaderboard.png)
+The model sees the food perfectly and guesses its calories terribly, because the
+calorie number is a fact it half-remembers, not something it can read off the
+image. So the workflow lets the model do what it is good at (identify and portion
+the food) and hands the part it is bad at (the calorie lookup) to USDA FoodData
+Central. The model never produces a calorie number.
 
-## The methods
+Full write-up and the honest caveat (when this does *not* help):
+**[the article](blog/how-to-beat-a-single-prompt.md)**.
 
-Each is a small, swappable class in [`calorie_pipeline/methods.py`](calorie_pipeline/methods.py)
-with one job: photo in, calories out, plus the tokens it spent. They span the real
-levers for improving on a single prompt.
+## The result
 
-| method | lever |
-|---|---|
-| one-shot | baseline |
-| one-shot + chain-of-thought | more reasoning per call |
-| one-shot + rubric | prompt engineering |
-| few-shot | in-context examples |
-| self-consistency | sample N, take the median |
-| self-refine | estimate, then critique it |
-| decomposed + USDA | ground the facts in a database |
-| decomposed, no reason pass | grounding, ablated |
-| grounded + blended | ensemble the grounding with the prompt |
+Across 24 lab-measured Nutrition5k dishes, on gemma4:12b:
 
-Adding a method is one class and one line in the `METHODS` registry. The study is
-a leaderboard of interchangeable parts.
+| approach | mean error |
+|---|--:|
+| one-shot (ask the model) | 504 kcal |
+| **workflow (grounded)** | **181 kcal** |
+
+![one-shot 504 vs workflow 181](docs/gemma_result.png)
 
 ## How it works
 
-The estimator decomposes the task into stages with typed contracts between them:
-vision identifies and portions the food, a USDA FoodData Central lookup supplies
-the calories per 100 g (no model, just a fact), a small model probes for hidden
-oil and sugar, and arithmetic sums it. Two of the four stages use no model. The
-grounding stage costs zero tokens because it is an HTTP lookup, not a generation.
+Four stages with typed contracts between them. Two of the four use no model.
 
-The benchmark ([`benchmark/`](benchmark/)) downloads a spread of
-[Nutrition5k](https://github.com/google-research-datasets/Nutrition5k) dishes,
-runs every method on each, and ranks them by error and by tokens, with a paired
-bootstrap significance test against the one-shot baseline.
+```mermaid
+flowchart LR
+    P([food photo]) --> V["VISION (model)<br/>identify + portion each food"]
+    V --> L["LOOKUP (no model)<br/>USDA calories per food"]
+    L --> R["REASON (model)<br/>hidden oil and sugar"]
+    R --> A["AGGREGATE (no model)<br/>sum"]
+    A --> E([calorie estimate])
+```
+
+The repo also ships a comparison harness: nine swappable methods (one-shot,
+chain-of-thought, few-shot, self-consistency, self-refine, grounding, blends) each
+a small class in [`calorie_pipeline/methods.py`](calorie_pipeline/methods.py), run
+across model sizes and ranked with significance tests. Adding one is a class and a
+line in the registry.
 
 ## Reproduce
 
@@ -51,23 +52,22 @@ pip install -r requirements.txt
 ollama pull qwen2.5vl:7b && ollama pull qwen2.5:7b
 export OLLAMA_HOST=http://localhost:11434 FDC_API_KEY=DEMO_KEY   # DEMO_KEY works
 
-python -m calorie_pipeline.run meal.jpg        # one photo, both methods + the blend
-python benchmark/compare_methods.py            # the full survey + leaderboard
-python benchmark/measure_tokens.py             # the token-cost table
-python -m unittest discover -s tests           # 63 offline tests, under a second
+python -m calorie_pipeline.run meal.jpg        # one photo, one-shot vs workflow
+python benchmark/compare_methods.py            # the full benchmark
+python -m unittest discover -s tests           # 63 offline tests
 ```
 
-The vision and text models are env-overridable (`VISION_MODEL`, `TEXT_MODEL`), so
-swapping in a different or larger model is one variable, no code change.
+Vision and text models are env-overridable (`VISION_MODEL`, `TEXT_MODEL`), so the
+12B-vs-7B comparison is one variable, no code change.
 
 ## Layout
 
 ```
-calorie_pipeline/   methods.py (the survey) + the staged estimator it draws on
-benchmark/          Nutrition5k builder, the comparison harness, results/
-docs/               the charts
+calorie_pipeline/   the staged estimator + methods.py (the survey)
+benchmark/          Nutrition5k builder, comparison harness, results/
+docs/               the charts and figures
 blog/               the write-up
-tests/              63 offline tests, no model or network needed
+tests/              63 offline tests, no model or network
 ```
 
 ## License

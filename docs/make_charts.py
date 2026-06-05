@@ -76,6 +76,72 @@ def cost_accuracy():
     plt.close(fig)
 
 
+def gemma_result():
+    """The aggregate: one-shot vs workflow on the 12B, across all 24 dishes."""
+    import numpy as np
+
+    def mae(method):
+        d = json.loads((ROOT / "benchmark/results/methods.json").read_text())[method]
+        return float(np.mean([abs(v["kcal"] - v["truth"]) for v in d.values() if v.get("kcal") is not None]))
+    one, work = mae("one-shot"), mae("decomposed + USDA")
+    fig, ax = plt.subplots(figsize=(6.6, 4.0))
+    bars = ax.bar(["one-shot", "workflow\n(grounded)"], [one, work],
+                  color=["#d9534f", "#2e8b6f"], width=0.55, zorder=3)
+    for b, v in zip(bars, [one, work]):
+        ax.text(b.get_x() + b.get_width() / 2, v + 10, f"{v:.0f}", ha="center", fontweight="bold", fontsize=12)
+    ax.set_ylabel("mean error, kcal   ·   lower is better")
+    ax.set_title(f"gemma4 12B, 24 dishes: the workflow cuts error {100*(one-work)/one:.0f}%", loc="left")
+    ax.set_ylim(0, one * 1.18)
+    ax.spines[["top", "right"]].set_visible(False)
+    ax.tick_params(length=0)
+    fig.tight_layout()
+    fig.savefig(DOCS / "gemma_result.png", bbox_inches="tight")
+    plt.close(fig)
+
+
+def worked_example():
+    """One dish, both approaches, side by side. The article in a single figure."""
+    import matplotlib.image as mpimg
+
+    img = mpimg.imread(ROOT / "benchmark/images/dish_1563302447/rgb.png")
+    ledger = [
+        ("fried fish (150 g)", "351"),
+        ("potato wedges (80 g)", "103"),
+        ("carrot, lettuce, mushroom", "29"),
+        ("+ oil and butter for frying", "~64"),
+    ]
+    fig, (axL, axR) = plt.subplots(1, 2, figsize=(10.4, 5.0), gridspec_kw={"width_ratios": [1, 1.35]})
+    axL.imshow(img)
+    axL.set_title("the photo", loc="left", fontsize=12)
+    axL.axis("off")
+
+    axR.axis("off")
+    axR.set_xlim(0, 1); axR.set_ylim(0, 1)
+    # one-shot
+    axR.text(0, 0.95, "ONE-SHOT", fontsize=12, fontweight="bold", color="#d9534f")
+    axR.text(0.30, 0.95, "ask the 12B for the total", fontsize=10, color="#7d8a98", va="center")
+    axR.text(0.02, 0.84, "1,250 kcal", fontsize=22, fontweight="bold", color="#d9534f")
+    axR.text(0.46, 0.85, "wrong by 689", fontsize=10, color="#d9534f", va="center")
+    axR.axhline(0.74, 0, 1, color="#e3e8ec", lw=1)
+    # workflow
+    axR.text(0, 0.68, "WORKFLOW", fontsize=12, fontweight="bold", color="#2e8b6f")
+    axR.text(0.34, 0.68, "see the food, look up each calorie, sum", fontsize=10, color="#7d8a98", va="center")
+    y = 0.58
+    for name, kc in ledger:
+        axR.text(0.02, y, name, fontsize=10.5, family="DejaVu Sans")
+        axR.text(0.62, y, kc, fontsize=10.5, fontweight="bold", ha="right")
+        y -= 0.075
+    axR.axhline(y + 0.03, 0.02, 0.64, color="#cdd5dc", lw=1)
+    axR.text(0.02, y - 0.04, "547 kcal", fontsize=22, fontweight="bold", color="#2e8b6f")
+    axR.text(0.46, y - 0.03, "off by 14", fontsize=10, color="#2e8b6f", va="center")
+    axR.text(0, 0.02, "measured truth: 561 kcal", fontsize=11, color="#48586a", fontweight="bold")
+    fig.suptitle("Same 12B model, same photo: one-shot vs a grounded workflow",
+                 x=0.02, ha="left", fontsize=14, fontweight="bold")
+    fig.tight_layout(rect=[0, 0, 1, 0.95])
+    fig.savefig(DOCS / "worked_example.png", bbox_inches="tight")
+    plt.close(fig)
+
+
 def two_model():
     """The flip: same grounding workflow, opposite verdict on 7B vs 12B."""
     import numpy as np
@@ -147,11 +213,13 @@ def segment_light():
 
 
 if __name__ == "__main__":
-    segment_light()
-    if not SCORES.exists():
-        raise SystemExit("leaderboard charts need benchmark/compare_methods.py to finish first")
-    leaderboard()
-    cost_accuracy()
-    for stale in ("recipe_ablation.png", "predicted_vs_measured.png", "token_cost.png"):
+    # The focused article uses three figures: the worked example, the aggregate
+    # result, and the two-model caveat. The leaderboard/segment functions above
+    # remain available for the fuller survey, but are not part of the main piece.
+    worked_example()
+    gemma_result()
+    two_model()
+    for stale in ("leaderboard.png", "cost_accuracy.png", "segment_light.png",
+                  "recipe_ablation.png", "predicted_vs_measured.png", "token_cost.png"):
         (DOCS / stale).unlink(missing_ok=True)
     print("wrote charts to", DOCS)

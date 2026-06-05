@@ -1,108 +1,101 @@
-# Capability is not the lever
+# A 12B model can see your food. It cannot count the calories.
 
-### A newer, bigger model did this task six times worse than a smaller one. I ran nine methods across two model sizes against lab-measured truth. The only thing that moved accuracy was grounding the model's specific weakness, not scaling up and not fancier prompting.
+### So I stopped one-shotting it. The same model, wrapped in a small workflow, goes from useless to within 14 calories of the truth. A measured case for workflows over raw prompting on local models.
 
-Here is the experiment that changed how I pick an approach. The task is estimating
-calories from a food photo, scored against physically measured ground truth from
-Nutrition5k. Everything runs locally. I wanted one question answered honestly: when
-you have a single prompt that works, what actually makes it better?
+The goal is one question: can a local 12-billion-parameter vision model estimate
+the calories in a meal from a photo? I scored it against Nutrition5k, a dataset of
+real plated meals whose calories were measured in a lab, so every answer has a real
+number to check against. Everything runs on one GPU, nothing leaves the machine. I
+tried the obvious way first, then a better way.
 
-I tested the two things everyone reaches for. A pile of prompting techniques, and a
-bigger model. Both lost.
+## The obvious way: ask the model
 
-## Fancier prompting lost
+Show gemma4:12b a photo and ask for the total. It answers instantly, one number, no
+reasoning, no provenance. The number is bad. Across 24 dishes its mean error was
+504 calories, and it tends to guess somewhere between 700 and 1,250 almost
+regardless of what is on the plate.
 
-I built nine estimators on a 7B vision model, each a clean swappable method, and
-ranked them on the same 24 dishes.
+The model is not blind. Ask it to describe the same photo and it is perfect:
+"roasted fish, potato wedges, carrots, a side salad." It sees the food fine. It
+just cannot turn what it sees into a calorie number, because that number is a fact
+it half-remembers, not something it can read off the image.
 
-![Nine methods ranked by error](../docs/leaderboard.png)
+## The better way: a workflow
 
-| method | error (kcal) | cost (tokens) |
-|---|--:|--:|
-| few-shot | 80 | 3,511 |
-| **one-shot** | **81** | **1,092** |
-| self-consistency | 101 | 5,460 |
-| chain-of-thought | 110 | 1,224 |
-| grounded + blended | 111 | 1,927 |
-| one-shot + rubric | 145 | 1,157 |
-| self-refine | 150 | 2,206 |
-| decomposed, no reasoning | 150 | 1,507 |
-| decomposed + USDA | 192 | 1,923 |
+So I stopped asking the model to do the part it is bad at. The workflow splits the
+job along that exact seam.
 
-The plain one-shot is the cheapest method and tied for the most accurate. Chain of
-thought, self-consistency, a domain rubric, self-critique, grounding: every one of
-them landed worse, several significantly so on a paired bootstrap. The thing I was
-most sure about, grounding the food in a database, came in last.
+```mermaid
+flowchart LR
+    P([food photo]) --> O["ONE-SHOT<br/>ask the 12B for the total"] --> OR(["1,250 kcal (wrong)"])
+    P --> V["WORKFLOW<br/>12B identifies and portions each food"] --> L["USDA database<br/>looks up each calorie"] --> SUM["sum"] --> WR(["547 kcal (right)"])
+    classDef model fill:#6c8ebf,color:#fff,stroke:#34506b;
+    classDef bad fill:#d9534f,color:#fff,stroke:#a33;
+    classDef good fill:#2e8b6f,color:#fff,stroke:#1f5d4a;
+    class O,V model
+    class OR bad
+    class L,SUM,WR good
+```
 
-Each of those techniques fixes a real failure. Chain of thought helps when the
-model skips reasoning. Sampling and voting helps when it is high variance.
-Grounding helps when it is guessing facts. On this task the 7B does not have most
-of those failures, so the techniques do not remove an error, they add one. More
-steps mean more places for a small model to go wrong.
+The model does what it is good at: naming and portioning the food. A database does
+what it is good at: the calorie lookup. Code adds it up. The model never produces a
+calorie number at all.
 
-## A bigger model lost harder
+Here is one real dish, both ways:
 
-So I did the obvious thing and swapped the 7B for a newer 12B. I expected a bump.
+![A worked example: one-shot vs the grounded workflow on one photo](../docs/worked_example.png)
 
-The one-shot got six times worse. Mean error went from 81 to 504. The 12B
-identifies food perfectly well, it described every dish correctly, but it guesses
-around 700 calories for almost everything regardless of what is on the plate. More
-parameters, a worse answer.
+One-shot says 1,250. The workflow identifies the food, grounds each item in USDA
+FoodData Central, sums it, and lands at 547. The measured truth was 561.
 
-That is the whole point in one data point. Capability is not a dial you turn for
-accuracy. A bigger or newer model is a different set of strengths and weaknesses,
-not a strictly better one, and you do not find out which until you measure on your
-task.
+## The result
 
-## What actually helped: grounding the specific weakness
+That is not a lucky dish. Across all 24:
 
-Average error hides the cases that matter. A model's prior is fine in the middle of
-its range and wrong at the edges, so I stopped averaging and looked at where each
-model is actually weak.
+![gemma4 12B: one-shot 504 vs workflow 181](../docs/gemma_result.png)
 
-On the 7B, the weakness is light meals. Its calorie prior has no concept of a small
-plate, so on dishes under 200 calories its entire output vocabulary is
-`0, 15, 50, 125, 150`. It cannot produce a small number. Grounding has no prior, it
-counts what is on the plate, and there it cuts error by 44 percent, from 53 to 30,
-with p below 0.001.
+One-shot 504, workflow 181. The same model, wrapped correctly, cuts its error by 64
+percent.
 
-![Grounding wins on light meals](../docs/segment_light.png)
+## Why it works
 
-On the 12B, the weakness is the arithmetic itself. It sees the food fine and then
-fabricates the calorie number. So I ran the same grounding workflow on it, which
-takes the number away from the model and hands it to a database. It rescued the
-bigger model exactly as predicted: error dropped from 504 to 189, a 62 percent cut.
+A vision model bundles two very different skills: perception (what is this) and
+recall (how many calories is that). It is strong at the first and unreliable at the
+second. One-shotting forces it to use both at once, and the weak skill drags the
+answer down. The workflow uses only the strong skill and hands the weak one to a
+source that is actually reliable.
 
-![Same workflow, opposite verdict on the two models](../docs/two_model.png)
+That is the part worth keeping, and it has nothing to do with food. When a model is
+confidently wrong about facts, do not prompt it harder. Find the one step it is bad
+at, and give that step to something built for it, a database, a tool, a calculator.
+Let the model do judgment, not lookup.
 
-That is the whole argument in one chart. Grounding is the worst method on the 7B
-and one of the best on the 12B. Same code, opposite verdict, because grounding
-converges both models to about 190 regardless of how good their own guess was. For
-the well-calibrated 7B that is a step down from 81. For the over-counting 12B it is
-a rescue from 504. The base model's calorie skill stops mattering once you ground
-it, which is a win when that skill is bad and a loss when it is good.
+## The honest caveat
 
-## The takeaway
+This is not "always use a workflow." I ran the identical workflow on a smaller 7B
+model that already estimates calories reasonably well, and there it made things
+worse.
 
-Stop reaching for scale or for whatever technique is trending. Neither is the
-lever. The lever is fit: find the specific thing your model is bad at, and add the
-one piece of structure that offloads exactly that, ground facts it fabricates,
-constrain numbers it cannot produce, and leave alone the parts it already does
-well. A 7B that you wrap correctly beats a 12B that you one-shot, and beats the 7B
-that you over-engineer.
+![Same workflow, opposite verdict on a 7B and a 12B](../docs/two_model.png)
 
-Diagnose first. Then add nothing you cannot point at a failure for.
+The grounded answer lands around 190 regardless of which model is driving, because
+the database supplies the calories either way. For the over-counting 12B that is a
+rescue from 504. For the already-decent 7B it is a step down from 81. The workflow
+helps exactly when the model is bad at the thing you are grounding, and only then.
+So diagnose the weakness before you build, instead of reaching for the bigger model
+or the fancier prompt.
 
 ## Reproduce
 
-Every method is a small class in `calorie_pipeline/methods.py`. The benchmark runs
-them all across model sizes and ranks them with significance tests.
+The estimator and every method are in the repo. The workflow is four stages with
+typed contracts: vision identifies and portions, USDA supplies the calories, a
+small model probes for hidden oil and sugar, arithmetic sums it.
 
 ```bash
-python benchmark/compare_methods.py            # the survey + leaderboard
-VISION_MODEL=gemma4:12b python benchmark/compare_methods.py   # same survey, bigger model
+python -m calorie_pipeline.run meal.jpg        # one photo, one-shot vs workflow
+python benchmark/compare_methods.py            # the full benchmark across methods
 python -m unittest discover -s tests           # 63 offline tests
 ```
 
-Runs local on a 16 GB GPU. Truth is Nutrition5k (CC BY 4.0); facts are USDA
+Runs local on a 16 GB GPU. Ground truth is Nutrition5k (CC BY 4.0); facts are USDA
 FoodData Central. MIT.
