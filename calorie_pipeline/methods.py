@@ -217,7 +217,10 @@ class Blend:
         return MethodResult(kcal, tokens=tok + t2, calls=2)
 
 
+# Order is execution priority only (the leaderboard sorts by accuracy). Grounding
+# methods are listed first so a flaky bigger model still yields the key capstone
+# before the expensive sampling methods run.
 METHODS: list[Method] = [
-    OneShot(), OneShotCoT(), OneShotRubric(), FewShot(), SelfConsistency(),
-    SelfRefine(), Decomposed(), DecomposedNoReason(), Blend(),
+    OneShot(), Decomposed(), Blend(), DecomposedNoReason(),
+    OneShotCoT(), OneShotRubric(), FewShot(), SelfRefine(), SelfConsistency(),
 ]

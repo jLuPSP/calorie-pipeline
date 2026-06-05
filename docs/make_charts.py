@@ -76,6 +76,46 @@ def cost_accuracy():
     plt.close(fig)
 
 
+def two_model():
+    """The flip: same grounding workflow, opposite verdict on 7B vs 12B."""
+    import numpy as np
+
+    def mae(store, method):
+        d = json.loads((ROOT / store).read_text())[method]
+        rows = [abs(v["kcal"] - v["truth"]) for v in d.values() if v.get("kcal") is not None]
+        return float(np.mean(rows))
+    q, g = "benchmark/results/methods_7b.json", "benchmark/results/methods.json"
+    data = {
+        "one-shot": (mae(q, "one-shot"), mae(g, "one-shot")),
+        "decomposed\n(grounded)": (mae(q, "decomposed + USDA"), mae(g, "decomposed + USDA")),
+    }
+    labels = list(data)
+    seven = [data[k][0] for k in labels]
+    twelve = [data[k][1] for k in labels]
+    x = np.arange(len(labels))
+    w = 0.36
+    fig, ax = plt.subplots(figsize=(7.4, 4.6))
+    b1 = ax.bar(x - w / 2, seven, w, label="7B (qwen2.5vl)", color="#48586a", zorder=3)
+    b2 = ax.bar(x + w / 2, twelve, w, label="12B (gemma4)", color="#b07a52", zorder=3)
+    for bars in (b1, b2):
+        for b in bars:
+            ax.text(b.get_x() + b.get_width() / 2, b.get_height() + 8, f"{b.get_height():.0f}",
+                    ha="center", fontweight="bold", fontsize=10)
+    ax.set_xticks(x, labels)
+    ax.set_ylabel("mean error, kcal   ·   lower is better")
+    ax.set_title("Same grounding workflow, opposite verdict", loc="left")
+    ax.set_ylim(0, 560)
+    ax.legend(frameon=False, loc="upper right")
+    ax.spines[["top", "right"]].set_visible(False)
+    ax.tick_params(length=0)
+    ax.annotate("grounding rescues\nthe over-counting 12B", xy=(1.18, 200), xytext=(1.0, 380),
+                fontsize=9, color="#7a5230", ha="center",
+                arrowprops=dict(arrowstyle="->", color="#b07a52"))
+    fig.tight_layout()
+    fig.savefig(DOCS / "two_model.png", bbox_inches="tight")
+    plt.close(fig)
+
+
 def segment_light():
     """Where grounding wins: light meals the prompt's prior can't reach."""
     seg = ROOT / "benchmark/results/light_segment.json"

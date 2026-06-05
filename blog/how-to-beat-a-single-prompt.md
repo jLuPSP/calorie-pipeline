@@ -69,14 +69,18 @@ with p below 0.001.
 ![Grounding wins on light meals](../docs/segment_light.png)
 
 On the 12B, the weakness is the arithmetic itself. It sees the food fine and then
-fabricates the calorie number. So grounding, which takes the number away from the
-model and hands it to a database, should rescue the bigger model the same way.
+fabricates the calorie number. So I ran the same grounding workflow on it, which
+takes the number away from the model and hands it to a database. It rescued the
+bigger model exactly as predicted: error dropped from 504 to 189, a 62 percent cut.
 
-<!-- gemma 12B grounded vs one-shot result + two-model chart: completed when the survey lands -->
+![Same workflow, opposite verdict on the two models](../docs/two_model.png)
 
-Same workflow, opposite verdict on the two models, for the same reason. Grounding
-is the worst method on the 7B and the best on the 12B, because it helps exactly
-where the base model is weak and hurts where it is not.
+That is the whole argument in one chart. Grounding is the worst method on the 7B
+and one of the best on the 12B. Same code, opposite verdict, because grounding
+converges both models to about 190 regardless of how good their own guess was. For
+the well-calibrated 7B that is a step down from 81. For the over-counting 12B it is
+a rescue from 504. The base model's calorie skill stops mattering once you ground
+it, which is a win when that skill is bad and a loss when it is good.
 
 ## The takeaway
 
