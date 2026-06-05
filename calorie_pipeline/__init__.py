@@ -20,6 +20,7 @@ See ``calorie_pipeline.pipeline`` for the orchestration and
 from __future__ import annotations
 
 from calorie_pipeline.config import Config
+from calorie_pipeline.methods import METHODS, Method, MethodResult
 from calorie_pipeline.models import (
     Adjustment,
     Comparison,
@@ -29,7 +30,7 @@ from calorie_pipeline.models import (
     OneShotEstimate,
 )
 
-__version__ = "0.1.0"
+__version__ = "0.2.0"
 
 __all__ = [
     "Config",
@@ -39,5 +40,8 @@ __all__ = [
     "Estimate",
     "OneShotEstimate",
     "Comparison",
+    "METHODS",
+    "Method",
+    "MethodResult",
     "__version__",
 ]

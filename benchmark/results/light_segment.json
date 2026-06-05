@@ -1,0 +1,233 @@
+[
+  {
+    "dish_id": "dish_1563305689",
+    "truth": 30.1,
+    "oneshot": 125.0,
+    "recipe": 100.0,
+    "pipeline": 54.0
+  },
+  {
+    "dish_id": "dish_1558113255",
+    "truth": 30.6,
+    "oneshot": 125.0,
+    "recipe": 149.0,
+    "pipeline": 173.0
+  },
+  {
+    "dish_id": "dish_1558114209",
+    "truth": 30.6,
+    "oneshot": 150.0,
+    "recipe": 122.7,
+    "pipeline": 95.4
+  },
+  {
+    "dish_id": "dish_1565724509",
+    "truth": 30.8,
+    "oneshot": 0.0,
+    "recipe": 0.0,
+    "pipeline": 16.3
+  },
+  {
+    "dish_id": "dish_1558116090",
+    "truth": 30.9,
+    "oneshot": 150.0,
+    "recipe": 161.5,
+    "pipeline": 173.0
+  },
+  {
+    "dish_id": "dish_1562700496",
+    "truth": 31.0,
+    "oneshot": 0.0,
+    "recipe": 0.0,
+    "pipeline": 12.5
+  },
+  {
+    "dish_id": "dish_1558031628",
+    "truth": 31.3,
+    "oneshot": 150.0,
+    "recipe": 120.0,
+    "pipeline": 51.0
+  },
+  {
+    "dish_id": "dish_1568060646",
+    "truth": 31.5,
+    "oneshot": 150.0,
+    "recipe": 120.0,
+    "pipeline": 58.5
+  },
+  {
+    "dish_id": "dish_1561579505",
+    "truth": 31.5,
+    "oneshot": 0.0,
+    "recipe": 0.0,
+    "pipeline": 12.5
+  },
+  {
+    "dish_id": "dish_1558724005",
+    "truth": 31.6,
+    "oneshot": 0.0,
+    "recipe": 0.0,
+    "pipeline": 71.75
+  },
+  {
+    "dish_id": "dish_1558721323",
+    "truth": 31.6,
+    "oneshot": 125.0,
+    "recipe": 100.0,
+    "pipeline": 63.0
+  },
+  {
+    "dish_id": "dish_1558723047",
+    "truth": 31.6,
+    "oneshot": 0.0,
+    "recipe": 0.0,
+    "pipeline": 20.5
+  },
+  {
+    "dish_id": "dish_1558031237",
+    "truth": 31.6,
+    "oneshot": 0.0,
+    "recipe": 0.0,
+    "pipeline": 57.0
+  },
+  {
+    "dish_id": "dish_1565711270",
+    "truth": 31.6,
+    "oneshot": 0.0,
+    "recipe": 0.0,
+    "pipeline": 17.0
+  },
+  {
+    "dish_id": "dish_1559843492",
+    "truth": 31.7,
+    "oneshot": 0.0,
+    "recipe": 0.0,
+    "pipeline": 46.0
+  },
+  {
+    "dish_id": "dish_1561392710",
+    "truth": 31.8,
+    "oneshot": 0.0,
+    "recipe": 0.0,
+    "pipeline": 45.0
+  },
+  {
+    "dish_id": "dish_1558719040",
+    "truth": 32.0,
+    "oneshot": 15.0,
+    "recipe": 18.0,
+    "pipeline": 21.0
+  },
+  {
+    "dish_id": "dish_1561578156",
+    "truth": 32.0,
+    "oneshot": 0.0,
+    "recipe": 0.0,
+    "pipeline": 17.5
+  },
+  {
+    "dish_id": "dish_1568318286",
+    "truth": 32.2,
+    "oneshot": 0.0,
+    "recipe": 0.0,
+    "pipeline": 64.5
+  },
+  {
+    "dish_id": "dish_1558640882",
+    "truth": 32.3,
+    "oneshot": 125.0,
+    "recipe": 100.0,
+    "pipeline": 63.0
+  },
+  {
+    "dish_id": "dish_1558640671",
+    "truth": 32.3,
+    "oneshot": 15.0,
+    "recipe": 18.0,
+    "pipeline": 51.0
+  },
+  {
+    "dish_id": "dish_1563898688",
+    "truth": 32.5,
+    "oneshot": 50.0,
+    "recipe": 46.0,
+    "pipeline": 42.0
+  },
+  {
+    "dish_id": "dish_1558724633",
+    "truth": 32.9,
+    "oneshot": 0.0,
+    "recipe": 0.0,
+    "pipeline": 42.0
+  },
+  {
+    "dish_id": "dish_1558639412",
+    "truth": 33.0,
+    "oneshot": 125.0,
+    "recipe": 100.0,
+    "pipeline": 67.5
+  },
+  {
+    "dish_id": "dish_1561574600",
+    "truth": 33.0,
+    "oneshot": 0.0,
+    "recipe": 0.0,
+    "pipeline": 37.5
+  },
+  {
+    "dish_id": "dish_1558635933",
+    "truth": 33.3,
+    "oneshot": 0.0,
+    "recipe": 0.0,
+    "pipeline": 54.0
+  },
+  {
+    "dish_id": "dish_1565721800",
+    "truth": 33.3,
+    "oneshot": 0.0,
+    "recipe": 0.0,
+    "pipeline": 16.4
+  },
+  {
+    "dish_id": "dish_1558632130",
+    "truth": 33.7,
+    "oneshot": 150.0,
+    "recipe": 120.0,
+    "pipeline": 81.0
+  },
+  {
+    "dish_id": "dish_1558725253",
+    "truth": 34.0,
+    "oneshot": 50.0,
+    "recipe": 46.0,
+    "pipeline": 42.0
+  },
+  {
+    "dish_id": "dish_1559235639",
+    "truth": 34.0,
+    "oneshot": 0.0,
+    "recipe": 0.0,
+    "pipeline": 4.8
+  },
+  {
+    "dish_id": "dish_1563389413",
+    "truth": 34.6,
+    "oneshot": 0.0,
+    "recipe": 0.0,
+    "pipeline": 16.1
+  },
+  {
+    "dish_id": "dish_1563216381",
+    "truth": 34.6,
+    "oneshot": 0.0,
+    "recipe": 0.0,
+    "pipeline": 14.0
+  },
+  {
+    "dish_id": "dish_1558633158",
+    "truth": 34.8,
+    "oneshot": 0.0,
+    "recipe": 0.0,
+    "pipeline": 8.11
+  }
+]
