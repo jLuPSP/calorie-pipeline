@@ -213,13 +213,12 @@ def segment_light():
 
 
 if __name__ == "__main__":
-    # The focused article uses three figures: the worked example, the aggregate
-    # result, and the two-model caveat. The leaderboard/segment functions above
-    # remain available for the fuller survey, but are not part of the main piece.
+    # The focused article uses two figures: the worked example and the aggregate
+    # result. The leaderboard/segment/two_model functions above remain available
+    # for the fuller survey, but are not part of the main piece.
     worked_example()
     gemma_result()
-    two_model()
     for stale in ("leaderboard.png", "cost_accuracy.png", "segment_light.png",
-                  "recipe_ablation.png", "predicted_vs_measured.png", "token_cost.png"):
+                  "two_model.png", "recipe_ablation.png", "predicted_vs_measured.png", "token_cost.png"):
         (DOCS / stale).unlink(missing_ok=True)
     print("wrote charts to", DOCS)

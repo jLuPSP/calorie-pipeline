@@ -12,7 +12,7 @@ image. So the workflow lets the model do what it is good at (identify and portio
 the food) and hands the part it is bad at (the calorie lookup) to USDA FoodData
 Central. The model never produces a calorie number.
 
-Full write-up and the honest caveat (when this does *not* help):
+Full write-up, the worked example, and how it is measured:
 **[the article](blog/how-to-beat-a-single-prompt.md)**.
 
 ## The result

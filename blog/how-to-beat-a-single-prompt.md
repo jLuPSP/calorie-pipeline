@@ -92,20 +92,13 @@ stage's model with one environment variable, no code change. Right-size each ste
 instead of paying frontier prices to do lookup and arithmetic a database does for
 free.
 
-## The honest caveat
+## Where it is rough
 
-This is not "always use a workflow." I ran the identical workflow on a smaller 7B
-model that already estimates calories reasonably well, and there it made things
-worse.
-
-![Same workflow, opposite verdict on a 7B and a 12B](../docs/two_model.png)
-
-The grounded answer lands around 190 regardless of which model is driving, because
-the database supplies the calories either way. For the over-counting 12B that is a
-rescue from 504. For the already-decent 7B it is a step down from 81. The workflow
-helps exactly when the model is bad at the thing you are grounding, and only then.
-So diagnose the weakness before you build, instead of reaching for the bigger model
-or the fancier prompt.
+Twenty-four dishes is a small benchmark, and I would rather say so. The matching is
+the weak link: when USDA has no clean row for the food the model named, that item
+falls back to the model's own estimate and the grounding cannot help. And this is
+one task, calories, where the facts happen to live in a clean public database. Not
+every problem has a USDA.
 
 ## Reproduce
 
