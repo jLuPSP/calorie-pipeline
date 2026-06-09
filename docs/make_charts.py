@@ -108,7 +108,7 @@ def worked_example():
         ("fried fish (150 g)", "351"),
         ("potato wedges (80 g)", "103"),
         ("carrot, lettuce, mushroom", "29"),
-        ("+ oil and butter for frying", "~64"),
+        ("+ oil and butter for frying", "~52"),
     ]
     fig, (axL, axR) = plt.subplots(1, 2, figsize=(10.4, 5.0), gridspec_kw={"width_ratios": [1, 1.35]})
     axL.imshow(img)
@@ -132,8 +132,8 @@ def worked_example():
         axR.text(0.62, y, kc, fontsize=10.5, fontweight="bold", ha="right")
         y -= 0.075
     axR.axhline(y + 0.03, 0.02, 0.64, color="#cdd5dc", lw=1)
-    axR.text(0.02, y - 0.04, "547 kcal", fontsize=22, fontweight="bold", color="#2e8b6f")
-    axR.text(0.46, y - 0.03, "off by 14", fontsize=10, color="#2e8b6f", va="center")
+    axR.text(0.02, y - 0.04, "535 kcal", fontsize=22, fontweight="bold", color="#2e8b6f")
+    axR.text(0.46, y - 0.03, "off by 26", fontsize=10, color="#2e8b6f", va="center")
     axR.text(0, 0.02, "measured truth: 561 kcal", fontsize=11, color="#48586a", fontweight="bold")
     fig.suptitle("Same 12B model, same photo: one-shot vs a grounded workflow",
                  x=0.02, ha="left", fontsize=14, fontweight="bold")

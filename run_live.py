@@ -3,7 +3,7 @@
 Reproduces the "real run" numbers from the README/blog. Requires a reachable
 Ollama (with the vision + text models) and network access to USDA.
 
-    OLLAMA_HOST=http://tower.local:11434 \
+    OLLAMA_HOST=http://your-ollama-host:11434 \
     TEXT_MODEL=qwen2.5:7b-instruct \
     FDC_API_KEY=... \
     python run_live.py                       # the three bundled sample photos

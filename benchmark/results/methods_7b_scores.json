@@ -1,0 +1,83 @@
+[
+  {
+    "method": "grounded + blended",
+    "lever": "ensembling",
+    "n": 24,
+    "mae": 81.85208333333333,
+    "median": 60.46249999999998,
+    "tokens": 1933,
+    "p_vs_oneshot": 0.5664
+  },
+  {
+    "method": "few-shot (2 examples)",
+    "lever": "in-context examples",
+    "n": 24,
+    "mae": 86.31666666666665,
+    "median": 78.0,
+    "tokens": 3511,
+    "p_vs_oneshot": 0.7276
+  },
+  {
+    "method": "self-consistency (n=5)",
+    "lever": "variance reduction",
+    "n": 24,
+    "mae": 87.64999999999999,
+    "median": 65.9,
+    "tokens": 5460,
+    "p_vs_oneshot": 0.6314
+  },
+  {
+    "method": "one-shot",
+    "lever": "baseline",
+    "n": 24,
+    "mae": 94.59999999999998,
+    "median": 62.55000000000001,
+    "tokens": 1092,
+    "p_vs_oneshot": null
+  },
+  {
+    "method": "one-shot + chain-of-thought",
+    "lever": "more reasoning",
+    "n": 24,
+    "mae": 113.32020833333333,
+    "median": 111.64999999999999,
+    "tokens": 1224,
+    "p_vs_oneshot": 0.5384
+  },
+  {
+    "method": "self-refine",
+    "lever": "verify & revise",
+    "n": 24,
+    "mae": 141.875,
+    "median": 98.79999999999998,
+    "tokens": 2206,
+    "p_vs_oneshot": 0.0242
+  },
+  {
+    "method": "one-shot + rubric",
+    "lever": "prompt engineering",
+    "n": 24,
+    "mae": 149.225,
+    "median": 162.20000000000002,
+    "tokens": 1157,
+    "p_vs_oneshot": 0.0072
+  },
+  {
+    "method": "decomposed (no reason pass)",
+    "lever": "ablation",
+    "n": 24,
+    "mae": 152.85833333333332,
+    "median": 117.04999999999995,
+    "tokens": 1510,
+    "p_vs_oneshot": 0.0374
+  },
+  {
+    "method": "decomposed + USDA",
+    "lever": "grounding",
+    "n": 24,
+    "mae": 201.96875,
+    "median": 181.05,
+    "tokens": 1907,
+    "p_vs_oneshot": 0.0006
+  }
+]

@@ -1,6 +1,6 @@
 """Run the one-shot vs decomposed pipeline benchmark over the manifest.
 
-    OLLAMA_HOST=http://tower.local:11434 TEXT_MODEL=qwen2.5:7b-instruct \
+    OLLAMA_HOST=http://your-ollama-host:11434 TEXT_MODEL=qwen2.5:7b-instruct \
     FDC_API_KEY=... python benchmark/run_benchmark.py
 
 Resilient: each dish is independent, partial results are written after every dish

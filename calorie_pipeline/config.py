@@ -3,7 +3,7 @@
 Every knob the pipeline touches lives here. Nothing else in the codebase reads
 ``os.environ`` directly. The design goal: a bigger box should be able to swap in
 larger models (``VISION_MODEL=llama3.2-vision:90b``) or point at a remote Ollama
-(``OLLAMA_HOST=http://tower.local:11434``) with **zero code changes** — only
+(``OLLAMA_HOST=http://your-ollama-host:11434``) with **zero code changes** — only
 environment.
 """
 

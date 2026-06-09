@@ -45,7 +45,7 @@ curl -H "User-Agent: research" -o benchmark/n5k_cafe2.csv \
 python benchmark/build_manifest.py 24
 
 # 3. run both methods on every dish, score, chart
-OLLAMA_HOST=http://tower.local:11434 TEXT_MODEL=qwen2.5:7b-instruct \
+OLLAMA_HOST=http://your-ollama-host:11434 TEXT_MODEL=qwen2.5:7b-instruct \
 FDC_API_KEY=... python benchmark/run_benchmark.py
 ```
 
@@ -75,10 +75,14 @@ independent, auditable correction to the prompt, not a replacement for it.
 
 ## Token cost
 
-`python benchmark/measure_tokens.py` reports real token usage per method. Headline:
-the image dominates (~1,100 tok), USDA lookups are free, and a fused vision call
-(total + breakdown in one pass) keeps the combined system at ~1.71x a single
-prompt instead of 2.66x. See the blog's cost section.
+`python benchmark/measure_tokens.py` reports real token usage, split by model
+(expensive vision model vs cheaper text model). USDA lookups and arithmetic are
+free (no model). The raw ratio is model-dependent: a vision model with a heavy
+image encode (qwen2.5vl:7b, ~1,100 tok/image) is dominated by the image, so a
+fused vision call amortizes it to ~1.7x a single prompt; gemma4:12b encodes the
+image cheaply (~150-300 tok), so the cost is the breakdown it generates and the
+workflow runs ~4x raw (~2.5x on the vision model, ~3.3x cost-weighted with the
+7B at half price). See the blog's cost section.
 
 ## Honest caveats
 
